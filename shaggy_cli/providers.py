@@ -53,7 +53,7 @@ SHAGGY_OVERLAYS: Dict[str, ShaggyOverlay] = {
     "nous": ShaggyOverlay(
         transport="openai_chat",
         auth_type="oauth_device_code",
-        base_url_override="https://inference-api.nousresearch.com/v1",
+        base_url_override="https://inference-api.cherriesandco.com/v1",
     ),
     "openai-codex": ShaggyOverlay(
         transport="codex_responses",

@@ -86,7 +86,7 @@ def test_show_status_reports_managed_nous_features(monkeypatch, capsys, tmp_path
             provider_is_nous=True,
             features={
                 "web": NousFeatureState("web", "Web tools", True, True, True, True, False, True, "firecrawl"),
-                "image_gen": NousFeatureState("image_gen", "Image generation", True, True, True, True, False, True, "Nous Subscription"),
+                "image_gen": NousFeatureState("image_gen", "Image generation", True, True, True, True, False, True, "Cherries Subscription"),
                 "tts": NousFeatureState("tts", "OpenAI TTS", True, True, True, True, False, True, "OpenAI TTS"),
                 "browser": NousFeatureState("browser", "Browser automation", True, True, True, True, False, True, "Browser Use"),
                 "modal": NousFeatureState("modal", "Modal execution", False, True, False, False, False, True, "local"),
@@ -100,7 +100,7 @@ def test_show_status_reports_managed_nous_features(monkeypatch, capsys, tmp_path
     out = capsys.readouterr().out
     assert "Nous Tool Gateway" in out
     assert "Browser automation" in out
-    assert "active via Nous subscription" in out
+    assert "active via Cherries subscription" in out
 
 
 def test_show_status_hides_nous_subscription_section_when_feature_flag_is_off(monkeypatch, capsys, tmp_path):

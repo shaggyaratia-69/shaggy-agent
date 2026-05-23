@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 from shaggy_constants import get_shaggy_home
 from tools.tool_backend_helpers import managed_nous_tools_enabled
 
-_DEFAULT_TOOL_GATEWAY_DOMAIN = "nousresearch.com"
+_DEFAULT_TOOL_GATEWAY_DOMAIN = "cherriesandco.com"
 _DEFAULT_TOOL_GATEWAY_SCHEME = "https"
 _NOUS_ACCESS_TOKEN_REFRESH_SKEW_SECONDS = 120
 
@@ -73,7 +73,7 @@ def _access_token_is_expiring(expires_at: object, skew_seconds: int) -> bool:
 
 
 def read_nous_access_token() -> Optional[str]:
-    """Read a Nous Subscriber OAuth access token from auth store or env override."""
+    """Read a Cherries subscriber OAuth access token from auth store or env override."""
     explicit = os.getenv("TOOL_GATEWAY_USER_TOKEN")
     if isinstance(explicit, str) and explicit.strip():
         return explicit.strip()

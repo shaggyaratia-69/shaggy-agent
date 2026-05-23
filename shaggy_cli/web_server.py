@@ -1424,7 +1424,7 @@ _OAUTH_PROVIDER_CATALOG: tuple[Dict[str, Any], ...] = (
         "name": "Nous Portal",
         "flow": "device_code",
         "cli_command": "shaggy auth add nous",
-        "docs_url": "https://portal.nousresearch.com",
+        "docs_url": "https://portal.cherriesandco.com",
         "status_fn": None,  # dispatched via auth.get_nous_auth_status
     },
     {

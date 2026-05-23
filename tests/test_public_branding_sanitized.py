@@ -2,7 +2,7 @@
 
 The README/GitHub-facing repository should not expose old upstream company or
 product branding. Internal provider slugs may still use lowercase implementation
-keys where technically required, but the old public labels must stay gone.
+keys where technically required, but old public labels and domains must stay gone.
 """
 
 from __future__ import annotations
@@ -13,16 +13,18 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
+# Split the literal old strings so this guard does not fail on its own source.
 FORBIDDEN_PATTERNS = {
-    "hermes_agent": re.compile(r"Hermes\s+Agent", re.IGNORECASE),
-    "hermes_agent_banner": re.compile(r"HERMES-AGENT", re.IGNORECASE),
-    "nous_research": re.compile(r"Nous\s+Research", re.IGNORECASE),
-    "nous_shaggy": re.compile(r"NOUS[ \t]+SHAGGY", re.IGNORECASE),
-    "old_docs_domain": re.compile(r"shaggy-agent\.nousresearch\.com", re.IGNORECASE),
-    "old_github_org": re.compile(r"github\.com/NousResearch", re.IGNORECASE),
-    "old_discord": re.compile(r"discord\.gg/NousResearch", re.IGNORECASE),
-    "old_built_badge": re.compile(r"Built%20by-Nous", re.IGNORECASE),
-    "harvey": re.compile(r"\bHarvey\b", re.IGNORECASE),
+    "hermes_agent": re.compile(r"Hermes[ \t]+Agent", re.IGNORECASE),
+    "hermes_agent_banner": re.compile("HERMES" + r"-" + "AGENT", re.IGNORECASE),
+    "nous_research": re.compile(r"Nous[ \t]+Research", re.IGNORECASE),
+    "nous_shaggy": re.compile("NOUS" + r"[ \t]+" + "SHAGGY", re.IGNORECASE),
+    "old_docs_domain": re.compile("shaggy-agent." + "nousresearch" + r"\.com", re.IGNORECASE),
+    "old_domain": re.compile("nousresearch" + r"\.com", re.IGNORECASE),
+    "old_github_org": re.compile(r"github\.com/" + "NousResearch", re.IGNORECASE),
+    "old_discord": re.compile(r"discord\.gg/" + "NousResearch", re.IGNORECASE),
+    "old_built_badge": re.compile("Built%20by-" + "Nous", re.IGNORECASE),
+    "old_assistant_name": re.compile(r"\b" + "Har" + "vey" + r"\b", re.IGNORECASE),
 }
 
 SKIP_PATH_PREFIXES = {

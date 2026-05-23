@@ -144,7 +144,7 @@ def _get_firecrawl_gateway_url() -> str:
 
 
 def _is_tool_gateway_ready() -> bool:
-    """Return True when gateway URL + Nous Subscriber token are available.
+    """Return True when gateway URL + Cherries subscriber token are available.
 
     Reads ``read_nous_access_token`` and ``resolve_managed_tool_gateway``
     via :mod:`tools.web_tools` rather than direct imports, so unit tests
@@ -196,8 +196,8 @@ def _raise_web_backend_configuration_error() -> None:
     )
     if _wt.managed_nous_tools_enabled():
         message += (
-            " With your Nous subscription you can also use the Tool Gateway — "
-            "run `shaggy tools` and select Nous Subscription as the web provider."
+            " With your Cherries subscription you can also use the Tool Gateway — "
+            "run `shaggy tools` and select Cherries Subscription as the web provider."
         )
     raise ValueError(message)
 

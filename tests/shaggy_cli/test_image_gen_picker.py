@@ -243,7 +243,7 @@ class TestConfigWriting:
 
         config = {"image_gen": {"provider": "openai", "use_gateway": False}}
         nous_row = {
-            "name": "Nous Subscription",
+            "name": "Cherries Subscription",
             "managed_nous_feature": "image_gen",
         }
         openai_row = {

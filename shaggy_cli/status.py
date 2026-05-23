@@ -281,7 +281,7 @@ def show_status(args):
         print(f"    Error:      {xai_oauth_status.get('error')}")
 
     # =========================================================================
-    # Nous Subscription Features
+    # Cherries Subscription Features
     # =========================================================================
     if managed_nous_tools_enabled():
         features = get_nous_subscription_features(config)
@@ -293,7 +293,7 @@ def show_status(args):
             print("  Nous Portal   ✓ managed tools available")
         for feature in features.items():
             if feature.managed_by_nous:
-                state = "active via Nous subscription"
+                state = "active via Cherries subscription"
             elif feature.active:
                 current = feature.current_provider or "configured provider"
                 state = f"active via {current}"
@@ -308,7 +308,7 @@ def show_status(args):
         # Logged into Nous but on the free tier — show upgrade nudge
         print()
         print(color("◆ Nous Tool Gateway", Colors.CYAN, Colors.BOLD))
-        print("  Your free-tier Nous account does not include Tool Gateway access.")
+        print("  Your free-tier Cherries account does not include Tool Gateway access.")
         print("  Upgrade your subscription to unlock managed web, image, TTS, and browser tools.")
         try:
             portal_url = nous_status.get("portal_base_url", "").rstrip("/")

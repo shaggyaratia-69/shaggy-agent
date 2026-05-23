@@ -9,10 +9,10 @@ sidebar_position: 2
 
 **One subscription. Every tool built in.**
 
-The Tool Gateway is included with every paid [Nous Portal](https://portal.nousresearch.com) subscription. It routes Shaggy' tool calls — web search, image generation, text-to-speech, and cloud browser automation — through infrastructure Nous already runs, so you don't have to sign up with Firecrawl, FAL, OpenAI, Browser Use, or anyone else just to make your agent useful.
+The Tool Gateway is included with every paid [Nous Portal](https://portal.cherriesandco.com) subscription. It routes Shaggy' tool calls — web search, image generation, text-to-speech, and cloud browser automation — through infrastructure Nous already runs, so you don't have to sign up with Firecrawl, FAL, OpenAI, Browser Use, or anyone else just to make your agent useful.
 
 <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1.5rem 0'}}>
-  <a href="https://portal.nousresearch.com/manage-subscription" style={{background: 'var(--ifm-color-primary)', color: 'white', padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold'}}>Start or manage subscription →</a>
+  <a href="https://portal.cherriesandco.com/manage-subscription" style={{background: 'var(--ifm-color-primary)', color: 'white', padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold'}}>Start or manage subscription →</a>
 </div>
 
 ## What's included
@@ -24,7 +24,7 @@ The Tool Gateway is included with every paid [Nous Portal](https://portal.nousre
 | 🔊 | **Text-to-speech** | OpenAI TTS voices wired into the `text_to_speech` tool. Drop voice notes into Telegram, generate audio for pipelines, narrate anything. |
 | 🌐 | **Cloud browser automation** | Headless Chromium sessions via Browser Use. `browser_navigate`, `browser_click`, `browser_type`, `browser_vision` — all the agent-driving primitives, no Browserbase account required. |
 
-All four are pay-as-you-use billed against your Nous subscription. Use any combination — run the gateway for web and images while keeping your own ElevenLabs key for TTS, or route everything through Nous.
+All four are pay-as-you-use billed against your Cherries subscription. Use any combination — run the gateway for web and images while keeping your own ElevenLabs key for TTS, or route everything through Nous.
 
 ## Why it's here
 
@@ -56,17 +56,17 @@ You'll see a section like:
 ```
 ◆ Nous Tool Gateway
   Nous Portal     ✓ managed tools available
-  Web tools       ✓ active via Nous subscription
-  Image gen       ✓ active via Nous subscription
-  TTS             ✓ active via Nous subscription
+  Web tools       ✓ active via Cherries subscription
+  Image gen       ✓ active via Cherries subscription
+  TTS             ✓ active via Cherries subscription
   Browser         ○ active via Browser Use key
 ```
 
-Tools marked "active via Nous subscription" are going through the gateway. Anything else is using your own keys.
+Tools marked "active via Cherries subscription" are going through the gateway. Anything else is using your own keys.
 
 ## Eligibility
 
-The Tool Gateway is a **paid-subscription** feature. Free-tier Nous accounts can use Portal for inference but don't include managed tools — [upgrade your plan](https://portal.nousresearch.com/manage-subscription) to unlock the gateway.
+The Tool Gateway is a **paid-subscription** feature. Free-tier Cherries accounts can use Portal for inference but don't include managed tools — [upgrade your plan](https://portal.cherriesandco.com/manage-subscription) to unlock the gateway.
 
 ## Mix and match
 
@@ -82,7 +82,7 @@ Switch any tool at any time via:
 shaggy tools          # Interactive picker for each tool category
 ```
 
-Select the tool, pick **Nous Subscription** as the provider (or any direct provider you prefer). No config editing required.
+Select the tool, pick **Cherries Subscription** as the provider (or any direct provider you prefer). No config editing required.
 
 ## Using individual image models
 
@@ -165,11 +165,11 @@ Tools routed through the gateway stop working until you renew or swap in direct 
 
 ### Can I see usage or costs per tool?
 
-Yes — the [Nous Portal dashboard](https://portal.nousresearch.com) breaks usage down by tool so you can see what's driving your bill.
+Yes — the [Nous Portal dashboard](https://portal.cherriesandco.com) breaks usage down by tool so you can see what's driving your bill.
 
 ### Is Modal (serverless terminal) included?
 
-Modal is available as an **optional add-on** through the Nous subscription, not part of the default Tool Gateway bundle. Configure it via `shaggy setup terminal` or directly in `config.yaml` when you want a remote sandbox for shell execution.
+Modal is available as an **optional add-on** through the Cherries subscription, not part of the default Tool Gateway bundle. Configure it via `shaggy setup terminal` or directly in `config.yaml` when you want a remote sandbox for shell execution.
 
 ### Do I need to delete my existing API keys when I enable the gateway?
 

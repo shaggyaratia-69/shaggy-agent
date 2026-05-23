@@ -2064,7 +2064,7 @@ def run_conversation(
                     print(f"{agent.log_prefix}   Most likely: Portal OAuth expired, account out of credits, or agent key revoked.")
                     print(f"{agent.log_prefix}   Troubleshooting:")
                     print(f"{agent.log_prefix}     • Re-authenticate: shaggy login --provider nous")
-                    print(f"{agent.log_prefix}     • Check credits / billing: https://portal.nousresearch.com")
+                    print(f"{agent.log_prefix}     • Check credits / billing: https://portal.cherriesandco.com")
                     print(f"{agent.log_prefix}     • Verify stored credentials: {_dhh}/auth.json")
                     print(f"{agent.log_prefix}     • Switch providers temporarily: /model <model> --provider openrouter")
                 if (

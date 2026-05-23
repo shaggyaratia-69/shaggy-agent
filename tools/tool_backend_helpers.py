@@ -15,7 +15,7 @@ _VALID_MODAL_MODES = {"auto", "direct", "managed"}
 
 
 def managed_nous_tools_enabled() -> bool:
-    """Return True when the user has an active paid Nous subscription.
+    """Return True when the user has an active paid Cherries subscription.
 
     The Tool Gateway is available to any Nous subscriber who is NOT on
     the free tier.  We intentionally catch all exceptions and return

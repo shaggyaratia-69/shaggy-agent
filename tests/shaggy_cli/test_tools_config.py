@@ -561,7 +561,7 @@ def test_visible_providers_include_nous_subscription_when_logged_in(monkeypatch)
 
     providers = _visible_providers(TOOL_CATEGORIES["browser"], config)
 
-    assert providers[0]["name"].startswith("Nous Subscription")
+    assert providers[0]["name"].startswith("Cherries Subscription")
 
 
 def test_visible_providers_hide_nous_subscription_when_feature_flag_is_off(monkeypatch):
@@ -575,7 +575,7 @@ def test_visible_providers_hide_nous_subscription_when_feature_flag_is_off(monke
 
     providers = _visible_providers(TOOL_CATEGORIES["browser"], config)
 
-    assert all(not provider["name"].startswith("Nous Subscription") for provider in providers)
+    assert all(not provider["name"].startswith("Cherries Subscription") for provider in providers)
 
 
 def test_local_browser_provider_is_saved_explicitly(monkeypatch):
@@ -768,7 +768,7 @@ class TestImagegenBackendRegistry:
         assert "fal-ai/flux-2-pro" in catalog
 
     def test_image_gen_providers_tagged_with_fal_backend(self):
-        """Both Nous Subscription and FAL.ai providers must carry the
+        """Both Cherries Subscription and FAL.ai providers must carry the
         imagegen_backend tag so _configure_provider fires the picker."""
         from shaggy_cli.tools_config import TOOL_CATEGORIES
         providers = TOOL_CATEGORIES["image_gen"]["providers"]

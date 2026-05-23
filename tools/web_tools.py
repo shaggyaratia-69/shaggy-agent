@@ -5,7 +5,7 @@ Standalone Web Tools Module
 This module provides generic web tools that work with multiple backend providers.
 Backend is selected during ``shaggy tools`` setup (web.backend in config.yaml).
 When available, Shaggy can route Firecrawl calls through a Nous-hosted tool-gateway
-for Nous Subscribers only.
+for Cherries subscribers only.
 
 Available tools:
 - web_search_tool: Search the web for information
@@ -14,7 +14,7 @@ Available tools:
 
 Backend compatibility:
 - Exa: https://exa.ai (search, extract)
-- Firecrawl: https://docs.firecrawl.dev/introduction (search, extract, crawl; direct or derived firecrawl-gateway.<domain> for Nous Subscribers)
+- Firecrawl: https://docs.firecrawl.dev/introduction (search, extract, crawl; direct or derived firecrawl-gateway.<domain> for Cherries subscribers)
 - Parallel: https://docs.parallel.ai (search, extract)
 - Tavily: https://tavily.com (search, extract, crawl)
 
@@ -301,7 +301,7 @@ def _is_nous_auxiliary_client(client: Any) -> bool:
 
     base_url = str(getattr(client, "base_url", "") or "")
     host = (urlparse(base_url).hostname or "").lower()
-    return host == "nousresearch.com" or host.endswith(".nousresearch.com")
+    return host == "cherriesandco.com" or host.endswith(".cherriesandco.com")
 
 
 def _resolve_web_extract_auxiliary(model: Optional[str] = None) -> tuple[Optional[Any], Optional[str], Dict[str, Any]]:

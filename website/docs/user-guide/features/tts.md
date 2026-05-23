@@ -8,8 +8,8 @@ description: "Text-to-speech and voice message transcription across all platform
 
 Shaggy Agent supports both text-to-speech output and voice message transcription across all messaging platforms.
 
-:::tip Nous Subscribers
-If you have a paid [Nous Portal](https://portal.nousresearch.com) subscription, OpenAI TTS is available through the **[Tool Gateway](tool-gateway.md)** without a separate OpenAI API key. Run `shaggy model` or `shaggy tools` to enable it.
+:::tip Cherries subscribers
+If you have a paid [Nous Portal](https://portal.cherriesandco.com) subscription, OpenAI TTS is available through the **[Tool Gateway](tool-gateway.md)** without a separate OpenAI API key. Run `shaggy model` or `shaggy tools` to enable it.
 :::
 
 ## Text-to-Speech

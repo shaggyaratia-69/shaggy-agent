@@ -1,4 +1,4 @@
-"""Helpers for Nous subscription managed-tool capabilities."""
+"""Helpers for Cherries subscription managed-tool capabilities."""
 
 from __future__ import annotations
 
@@ -437,7 +437,7 @@ def get_nous_subscription_features(
             managed_by_nous=image_managed,
             direct_override=image_active and not image_managed,
             toolset_enabled=image_tool_enabled,
-            current_provider="FAL" if direct_fal else ("Nous Subscription" if image_managed else ""),
+            current_provider="FAL" if direct_fal else ("Cherries Subscription" if image_managed else ""),
             explicit_configured=direct_fal,
         ),
         "tts": NousFeatureState(
@@ -717,7 +717,7 @@ def prompt_enable_tool_gateway(config: Dict[str, object]) -> set[str]:
     desc_parts: list[str] = [
         "",
         "  The Tool Gateway gives you access to web search, image generation,",
-        "  text-to-speech, and browser automation through your Nous subscription.",
+        "  text-to-speech, and browser automation through your Cherries subscription.",
         "  No need to sign up for separate API keys — just pick the tools you want.",
         "",
     ]
@@ -766,7 +766,7 @@ def prompt_enable_tool_gateway(config: Dict[str, object]) -> set[str]:
 
     try:
         idx = prompt_choice(
-            "Your Nous subscription includes the Tool Gateway.",
+            "Your Cherries subscription includes the Tool Gateway.",
             choices,
             default_idx,
             description=description,
@@ -793,7 +793,7 @@ def prompt_enable_tool_gateway(config: Dict[str, object]) -> set[str]:
         newly_switched = changed - set(already_managed)
         for key in sorted(newly_switched):
             label = _GATEWAY_TOOL_LABELS.get(key, key)
-            print(f"  ✓ {label}: enabled via Nous subscription")
+            print(f"  ✓ {label}: enabled via Cherries subscription")
         if already_managed and not newly_switched:
             print("  (all tools already using Tool Gateway)")
     return changed

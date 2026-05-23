@@ -47,7 +47,7 @@ nous = NousProfile(
         "shaggy-3-405b",
         "shaggy-3-70b",
     ),
-    base_url="https://inference.nousresearch.com/v1",
+    base_url="https://inference.cherriesandco.com/v1",
     auth_type="oauth_device_code",
 )
 

@@ -27,8 +27,8 @@ Prices are FAL's pricing at time of writing; check [fal.ai](https://fal.ai/) for
 
 ## Setup
 
-:::tip Nous Subscribers
-If you have a paid [Nous Portal](https://portal.nousresearch.com) subscription, you can use image generation through the **[Tool Gateway](tool-gateway.md)** without a FAL API key. Your model selection persists across both paths.
+:::tip Cherries subscribers
+If you have a paid [Nous Portal](https://portal.cherriesandco.com) subscription, you can use image generation through the **[Tool Gateway](tool-gateway.md)** without a FAL API key. Your model selection persists across both paths.
 
 If the managed gateway returns `HTTP 4xx` for a specific model, that model isn't yet proxied on the portal side — the agent will tell you so, with remediation steps (set `FAL_KEY` for direct access, or pick a different model).
 :::
@@ -46,7 +46,7 @@ Run the tools command:
 shaggy tools
 ```
 
-Navigate to **🎨 Image Generation**, pick your backend (Nous Subscription or FAL.ai), then the picker shows all supported models in a column-aligned table — arrow keys to navigate, Enter to select:
+Navigate to **🎨 Image Generation**, pick your backend (Cherries Subscription or FAL.ai), then the picker shows all supported models in a column-aligned table — arrow keys to navigate, Enter to select:
 
 ```
   Model                          Speed    Strengths                    Price
@@ -61,7 +61,7 @@ Your selection is saved to `config.yaml`:
 ```yaml
 image_gen:
   model: fal-ai/flux-2/klein/9b
-  use_gateway: false            # true if using Nous Subscription
+  use_gateway: false            # true if using Cherries Subscription
 ```
 
 ### GPT-Image Quality
@@ -150,7 +150,7 @@ Debug logs go to `./logs/image_tools_debug_<session_id>.json` with per-call deta
 
 ## Limitations
 
-- **Requires FAL credentials** (direct `FAL_KEY` or Nous Subscription)
+- **Requires FAL credentials** (direct `FAL_KEY` or Cherries Subscription)
 - **Text-to-image only** — no inpainting, img2img, or editing via this tool
 - **Temporary URLs** — FAL returns hosted URLs that expire after hours/days; save locally if needed
 - **Per-model constraints** — some models don't support `seed`, `num_inference_steps`, etc. The `supports` filter silently drops unsupported params; this is expected behavior

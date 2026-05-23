@@ -8,10 +8,10 @@ sidebar_position: 2
 # Nous Tool Gateway（工具网关）
 
 :::tip 快速开始
-Tool Gateway 包含在付费 Nous Portal 订阅中。**[管理订阅 →](https://portal.nousresearch.com/manage-subscription)**
+Tool Gateway 包含在付费 Nous Portal 订阅中。**[管理订阅 →](https://portal.cherriesandco.com/manage-subscription)**
 :::
 
-**Tool Gateway** 让已付费的 [Nous Portal](https://portal.nousresearch.com) 用户通过同一份订阅，直接使用网页搜索、文生图、语音合成（TTS）与浏览器自动化，而**不必**再分别注册 Firecrawl、FAL、OpenAI、Browser Use 等服务的 API Key。
+**Tool Gateway** 让已付费的 [Nous Portal](https://portal.cherriesandco.com) 用户通过同一份订阅，直接使用网页搜索、文生图、语音合成（TTS）与浏览器自动化，而**不必**再分别注册 Firecrawl、FAL、OpenAI、Browser Use 等服务的 API Key。
 
 ## 包含能力
 
@@ -26,7 +26,7 @@ Tool Gateway 包含在付费 Nous Portal 订阅中。**[管理订阅 →](https:
 
 ## 资格与账号
 
-Tool Gateway 仅对 **[付费](https://portal.nousresearch.com/manage-subscription)** Nous Portal 订阅开放；免费档不可用——请 [升级订阅](https://portal.nousresearch.com/manage-subscription) 后解锁。
+Tool Gateway 仅对 **[付费](https://portal.cherriesandco.com/manage-subscription)** Nous Portal 订阅开放；免费档不可用——请 [升级订阅](https://portal.cherriesandco.com/manage-subscription) 后解锁。
 
 检查当前状态：
 
@@ -43,10 +43,10 @@ shaggy status
 运行 `shaggy model` 并选择 Nous Portal 作为提供商时，Shaggy 会主动询问是否启用 Tool Gateway：
 
 ```
-Your Nous subscription includes the Tool Gateway.
+Your Cherries subscription includes the Tool Gateway.
 
   The Tool Gateway gives you access to web search, image generation,
-  text-to-speech, and browser automation through your Nous subscription.
+  text-to-speech, and browser automation through your Cherries subscription.
   No need to sign up for separate API keys — just pick the tools you want.
 
   ○ Web search & extract (Firecrawl) — not configured
@@ -70,7 +70,7 @@ Your Nous subscription includes the Tool Gateway.
 shaggy tools
 ```
 
-选择工具类别（Web、Browser、Image Generation、TTS），再将提供商选为 **Nous Subscription**。这会在配置里把对应工具的 `use_gateway` 设为 `true`。
+选择工具类别（Web、Browser、Image Generation、TTS），再将提供商选为 **Cherries Subscription**。这会在配置里把对应工具的 `use_gateway` 设为 `true`。
 
 ### 手动编辑配置
 
@@ -142,21 +142,21 @@ shaggy status
 ```
 ◆ Nous Tool Gateway
   Nous Portal   ✓ managed tools available
-  Web tools       ✓ active via Nous subscription
-  Image gen       ✓ active via Nous subscription
-  TTS             ✓ active via Nous subscription
+  Web tools       ✓ active via Cherries subscription
+  Image gen       ✓ active via Cherries subscription
+  TTS             ✓ active via Cherries subscription
   Browser         ○ active via Browser Use key
   Modal           ○ available via subscription (optional)
 ```
 
-标记为 “active via Nous subscription” 的即经网关路由；带自有 Key 的会显示当前激活的提供商。
+标记为 “active via Cherries subscription” 的即经网关路由；带自有 Key 的会显示当前激活的提供商。
 
 ## 进阶：自建网关
 
 若使用自建或自定义网关，可在 `~/.shaggy/.env` 中用环境变量覆盖端点：
 
 ```bash
-TOOL_GATEWAY_DOMAIN=nousresearch.com     # 网关路由基础域名
+TOOL_GATEWAY_DOMAIN=cherriesandco.com     # 网关路由基础域名
 TOOL_GATEWAY_SCHEME=https                 # http 或 https（默认 https）
 TOOL_GATEWAY_USER_TOKEN=your-token        # 鉴权 Token（通常由程序自动填充）
 FIRECRAWL_GATEWAY_URL=https://...         # 单独覆盖 Firecrawl 端点
@@ -176,7 +176,7 @@ FIRECRAWL_GATEWAY_URL=https://...         # 单独覆盖 Firecrawl 端点
 
 ### 订阅到期会怎样？
 
-经网关路由的工具会停止工作，直到你 [续订](https://portal.nousresearch.com/manage-subscription) 或通过 `shaggy tools` 改回直连 Key。
+经网关路由的工具会停止工作，直到你 [续订](https://portal.cherriesandco.com/manage-subscription) 或通过 `shaggy tools` 改回直连 Key。
 
 ### 与「消息网关」（各聊天平台）是否冲突？
 

@@ -1,4 +1,4 @@
-"""Tests for Nous subscription feature detection."""
+"""Tests for Cherries subscription feature detection."""
 
 from shaggy_cli import nous_subscription as ns
 

@@ -70,8 +70,8 @@ AUTH_STORE_VERSION = 1
 AUTH_LOCK_TIMEOUT_SECONDS = 15.0
 
 # Nous Portal defaults
-DEFAULT_NOUS_PORTAL_URL = "https://portal.nousresearch.com"
-DEFAULT_NOUS_INFERENCE_URL = "https://inference-api.nousresearch.com/v1"
+DEFAULT_NOUS_PORTAL_URL = "https://portal.cherriesandco.com"
+DEFAULT_NOUS_INFERENCE_URL = "https://inference-api.cherriesandco.com/v1"
 DEFAULT_NOUS_CLIENT_ID = "shaggy-cli"
 NOUS_LEGACY_AGENT_KEY_SCOPE = "inference:mint_agent_key"
 NOUS_INFERENCE_INVOKE_SCOPE = "inference:invoke"
@@ -5376,7 +5376,7 @@ def _snapshot_nous_pool_status() -> Dict[str, Any]:
 
 # ── Process-level memo for get_nous_auth_status() ──
 # get_nous_auth_status() validates state by calling resolve_nous_runtime_credentials(),
-# which does a synchronous OAuth refresh POST to portal.nousresearch.com. That can take
+# which does a synchronous OAuth refresh POST to portal.cherriesandco.com. That can take
 # ~350ms even on the failure path, and read-only UI surfaces (`shaggy tools`, status panels,
 # subscription-feature checks) call it many times per render — `shaggy tools` → "All Platforms"
 # was firing the refresh ~31× during one menu paint, racking up >13s of HTTP and burning
