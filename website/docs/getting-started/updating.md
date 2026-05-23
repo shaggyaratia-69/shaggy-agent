@@ -140,7 +140,7 @@ You no longer need to wrap `shaggy update` in `screen` or `tmux` to survive a te
 shaggy version
 ```
 
-Compare against the latest release at the [GitHub releases page](https://github.com/NousResearch/shaggy-agent/releases).
+Compare against the latest release at the [GitHub releases page](https://github.com/shaggyaratia-69/shaggy-agent/releases).
 
 ### Updating from Messaging Platforms
 

@@ -149,12 +149,12 @@ shaggy webhook subscribe pr-review \
   --deliver github_comment
 ```
 
-Full automation templates gallery: [shaggy-agent.nousresearch.com/docs/guides/automation-templates](https://shaggy-agent.nousresearch.com/docs/guides/automation-templates)
+Full automation templates gallery: [shaggyaratia-69.github.io/shaggy-agent/docs/guides/automation-templates](https://shaggyaratia-69.github.io/shaggy-agent/docs/guides/automation-templates)
 
-Documentation: [shaggy-agent.nousresearch.com](https://shaggy-agent.nousresearch.com)
+Documentation: [shaggyaratia-69.github.io/shaggy-agent](https://shaggyaratia-69.github.io/shaggy-agent)
 
-GitHub: [github.com/NousResearch/shaggy-agent](https://github.com/NousResearch/shaggy-agent)
+GitHub: [github.com/shaggyaratia-69/shaggy-agent](https://github.com/shaggyaratia-69/shaggy-agent)
 
 ---
 
-*Shaggy Agent is built by [Cherries and Co](https://nousresearch.com). Open source, model-agnostic, runs on your infrastructure.*
+*Shaggy Agent is built by [Cherries and Co](https://www.cherriesandco.com). Open source, model-agnostic, runs on your infrastructure.*

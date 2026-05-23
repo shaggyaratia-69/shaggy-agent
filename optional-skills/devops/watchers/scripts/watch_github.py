@@ -6,7 +6,7 @@ Usage (via cron with --no-agent):
     shaggy cron create shaggy-issues \\
       --schedule "*/5 * * * *" --no-agent \\
       --script "$SHAGGY_HOME/skills/devops/watchers/scripts/watch_github.py" \\
-      --script-args "--name shaggy-issues --repo NousResearch/shaggy-agent --scope issues"
+      --script-args "--name shaggy-issues --repo shaggyaratia-69/shaggy-agent --scope issues"
 
 Set GITHUB_TOKEN (or GH_TOKEN) in ~/.shaggy/.env to avoid the 60 req/hr
 anonymous rate limit.

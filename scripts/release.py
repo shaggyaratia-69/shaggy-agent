@@ -342,7 +342,7 @@ AUTHOR_MAP = {
     "130918800+devorun@users.noreply.github.com": "devorun",
     "surat.s@itm.kmutnb.ac.th": "beesrsj2500",
     "beesr@bee.localdomain": "beesrsj2500",
-    "mind-dragon@nous.research": "Mind-Dragon",
+    "mind-dragon@cherriesandco.com": "Mind-Dragon",
     "juntingpublic@gmail.com": "JustinUssuri",
     "mtf201013@gmail.com": "ma-pony",
     "sonoyuncudmr@gmail.com": "Sonoyunchu",
@@ -593,7 +593,7 @@ AUTHOR_MAP = {
     "shokatalishaikh95@gmail.com": "areu01or00",
     "bryan@intertwinesys.com": "bryanyoung",
     "christo.mitov@gmail.com": "christomitov",
-    "shaggy@nousresearch.com": "NousResearch",
+    "shaggy@nousresearch.com": "shaggyaratia-69",
     "reginaldasr@gmail.com": "ReginaldasR",
     "ntconguit@gmail.com": "0xharryriddle",
     "agent@wildcat.local": "ericnicolaides",
@@ -1571,7 +1571,7 @@ def get_pr_number(subject: str) -> str | None:
     return None
 
 
-def generate_changelog(commits, tag_name, semver, repo_url="https://github.com/NousResearch/shaggy-agent",
+def generate_changelog(commits, tag_name, semver, repo_url="https://github.com/shaggyaratia-69/shaggy-agent",
                        prev_tag=None, first_release=False):
     """Generate markdown changelog from categorized commits."""
     lines = []

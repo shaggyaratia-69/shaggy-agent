@@ -3085,7 +3085,7 @@ def check_for_skill_updates(
 # Shaggy centralized index source
 # ---------------------------------------------------------------------------
 
-SHAGGY_INDEX_URL = "https://shaggy-agent.nousresearch.com/docs/api/skills-index.json"
+SHAGGY_INDEX_URL = "https://shaggyaratia-69.github.io/shaggy-agent/docs/api/skills-index.json"
 SHAGGY_INDEX_CACHE_FILE = INDEX_CACHE_DIR / "shaggy-index.json"
 SHAGGY_INDEX_TTL = 6 * 3600  # 6 hours
 

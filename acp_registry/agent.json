@@ -3,8 +3,8 @@
   "name": "Shaggy Agent",
   "version": "0.14.0",
   "description": "Self-improving open-source AI agent by Cherries and Co with ACP editor integration, persistent memory, skills, and rich tool support.",
-  "repository": "https://github.com/NousResearch/shaggy-agent",
-  "website": "https://shaggy-agent.nousresearch.com/docs/user-guide/features/acp",
+  "repository": "https://github.com/shaggyaratia-69/shaggy-agent",
+  "website": "https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/acp",
   "authors": ["Cherries and Co"],
   "license": "MIT",
   "distribution": {

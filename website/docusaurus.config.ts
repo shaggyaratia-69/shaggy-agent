@@ -7,10 +7,10 @@ const config: Config = {
   tagline: 'The self-improving AI agent',
   favicon: 'img/favicon.ico',
 
-  url: 'https://shaggy-agent.nousresearch.com',
+  url: 'https://shaggyaratia-69.github.io/shaggy-agent',
   baseUrl: '/docs/',
 
-  organizationName: 'NousResearch',
+  organizationName: 'shaggyaratia-69',
   projectName: 'shaggy-agent',
 
   onBrokenLinks: 'warn',
@@ -77,7 +77,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',  // Docs at the root of /docs/
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/NousResearch/shaggy-agent/edit/main/website/',
+          editUrl: 'https://github.com/shaggyaratia-69/shaggy-agent/edit/main/website/',
         },
         blog: false,
         theme: {
@@ -122,17 +122,17 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://shaggy-agent.nousresearch.com',
+          href: 'https://shaggyaratia-69.github.io/shaggy-agent',
           label: 'Home',
           position: 'right',
         },
         {
-          href: 'https://github.com/NousResearch/shaggy-agent',
+          href: 'https://github.com/shaggyaratia-69/shaggy-agent',
           label: 'GitHub',
           position: 'right',
         },
         {
-          href: 'https://discord.gg/NousResearch',
+          href: 'https://discord.gg/cherriesandco',
           label: 'Discord',
           position: 'right',
         },
@@ -153,20 +153,20 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            { label: 'Discord', href: 'https://discord.gg/NousResearch' },
-            { label: 'GitHub Discussions', href: 'https://github.com/NousResearch/shaggy-agent/discussions' },
+            { label: 'Discord', href: 'https://discord.gg/cherriesandco' },
+            { label: 'GitHub Discussions', href: 'https://github.com/shaggyaratia-69/shaggy-agent/discussions' },
             { label: 'Skills Hub', href: 'https://agentskills.io' },
           ],
         },
         {
           title: 'More',
           items: [
-            { label: 'GitHub', href: 'https://github.com/NousResearch/shaggy-agent' },
-            { label: 'Cherries and Co', href: 'https://nousresearch.com' },
+            { label: 'GitHub', href: 'https://github.com/shaggyaratia-69/shaggy-agent' },
+            { label: 'Cherries and Co', href: 'https://www.cherriesandco.com' },
           ],
         },
       ],
-      copyright: `Built by <a href="https://nousresearch.com">Cherries and Co</a> · MIT License · ${new Date().getFullYear()}`,
+      copyright: `Built by <a href="https://www.cherriesandco.com">Cherries and Co</a> · MIT License · ${new Date().getFullYear()}`,
     },
     prism: {
       theme: prismThemes.github,

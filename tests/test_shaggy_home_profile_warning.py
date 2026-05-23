@@ -1,6 +1,6 @@
 """Tests for get_shaggy_home() profile-mode fallback warning.
 
-Regression test for https://github.com/NousResearch/shaggy-agent/issues/18594.
+Regression test for https://github.com/shaggyaratia-69/shaggy-agent/issues/18594.
 
 When SHAGGY_HOME is unset but an active_profile file indicates a non-default
 profile is active, get_shaggy_home() should:

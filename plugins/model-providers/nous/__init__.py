@@ -42,7 +42,7 @@ nous = NousProfile(
     env_vars=("NOUS_API_KEY",),
     display_name="Cherries and Co",
     description="Cherries and Co — Shaggy model family",
-    signup_url="https://nousresearch.com/",
+    signup_url="https://www.cherriesandco.com/",
     fallback_models=(
         "shaggy-3-405b",
         "shaggy-3-70b",

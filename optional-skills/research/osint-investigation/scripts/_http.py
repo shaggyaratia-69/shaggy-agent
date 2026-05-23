@@ -13,7 +13,7 @@ import urllib.request
 
 DEFAULT_UA = (
     "shaggy-osint-investigation/0.2 "
-    "(+https://github.com/NousResearch/shaggy-agent; "
+    "(+https://github.com/shaggyaratia-69/shaggy-agent; "
     "set SHAGGY_OSINT_UA env var to identify yourself per "
     "Wikimedia / SEC fair-use guidance)"
 )

@@ -13,7 +13,7 @@ When the manifest is unreachable (offline, network blocked, hosting failure), Sh
 ## Live manifest URL
 
 ```
-https://shaggy-agent.nousresearch.com/docs/api/model-catalog.json
+https://shaggyaratia-69.github.io/shaggy-agent/docs/api/model-catalog.json
 ```
 
 Published on every merge to `main` via the existing `deploy-site.yml` GitHub Pages pipeline. The source of truth lives in the repo at `website/static/api/model-catalog.json`.
@@ -68,7 +68,7 @@ Cache location: `~/.shaggy/cache/model_catalog.json`.
 ```yaml
 model_catalog:
   enabled: true
-  url: https://shaggy-agent.nousresearch.com/docs/api/model-catalog.json
+  url: https://shaggyaratia-69.github.io/shaggy-agent/docs/api/model-catalog.json
   ttl_hours: 24
   providers: {}
 ```

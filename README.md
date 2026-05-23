@@ -5,16 +5,16 @@
 # Shaggy Agent ☤
 
 <p align="center">
-  <a href="https://shaggy-agent.nousresearch.com/docs/"><img src="https://img.shields.io/badge/Docs-shaggy--agent.nousresearch.com-FFD700?style=for-the-badge" alt="Documentation"></a>
-  <a href="https://discord.gg/NousResearch"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/NousResearch/shaggy-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
-  <a href="https://nousresearch.com"><img src="https://img.shields.io/badge/Built%20by-Nous%20Research-blueviolet?style=for-the-badge" alt="Built by Cherries and Co"></a>
+  <a href="https://shaggyaratia-69.github.io/shaggy-agent/docs/"><img src="https://img.shields.io/badge/Docs-github.com%2Fshaggyaratia--69-FFD700?style=for-the-badge" alt="Documentation"></a>
+  <a href="https://discord.gg/cherriesandco"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://github.com/shaggyaratia-69/shaggy-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
+  <a href="https://www.cherriesandco.com"><img src="https://img.shields.io/badge/Built%20by-Cherries%20and%20Co%20Research-blueviolet?style=for-the-badge" alt="Built by Cherries and Co"></a>
   <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/Lang-中文-red?style=for-the-badge" alt="中文"></a>
 </p>
 
-**The self-improving AI agent built by [Cherries and Co](https://nousresearch.com).** It's the only agent with a built-in learning loop — it creates skills from experience, improves them during use, nudges itself to persist knowledge, searches its own past conversations, and builds a deepening model of who you are across sessions. Run it on a $5 VPS, a GPU cluster, or serverless infrastructure that costs nearly nothing when idle. It's not tied to your laptop — talk to it from Telegram while it works on a cloud VM.
+**The self-improving AI agent built by [Cherries and Co](https://www.cherriesandco.com).** It's the only agent with a built-in learning loop — it creates skills from experience, improves them during use, nudges itself to persist knowledge, searches its own past conversations, and builds a deepening model of who you are across sessions. Run it on a $5 VPS, a GPU cluster, or serverless infrastructure that costs nearly nothing when idle. It's not tied to your laptop — talk to it from Telegram while it works on a cloud VM.
 
-Use any model you want — [Nous Portal](https://portal.nousresearch.com), [OpenRouter](https://openrouter.ai) (200+ models), [NovitaAI](https://novita.ai) (AI-native cloud for Model API, Agent Sandbox, and GPU Cloud), [NVIDIA NIM](https://build.nvidia.com) (Nemotron), [Xiaomi MiMo](https://platform.xiaomimimo.com), [z.ai/GLM](https://z.ai), [Kimi/Moonshot](https://platform.moonshot.ai), [MiniMax](https://www.minimax.io), [Hugging Face](https://huggingface.co), OpenAI, or your own endpoint. Switch with `shaggy model` — no code changes, no lock-in.
+Use any model you want — [Cherries Portal](https://www.cherriesandco.com), [OpenRouter](https://openrouter.ai) (200+ models), [NovitaAI](https://novita.ai) (AI-native cloud for Model API, Agent Sandbox, and GPU Cloud), [NVIDIA NIM](https://build.nvidia.com) (Nemotron), [Xiaomi MiMo](https://platform.xiaomimimo.com), [z.ai/GLM](https://z.ai), [Kimi/Moonshot](https://platform.moonshot.ai), [MiniMax](https://www.minimax.io), [Hugging Face](https://huggingface.co), OpenAI, or your own endpoint. Switch with `shaggy model` — no code changes, no lock-in.
 
 <table>
 <tr><td><b>A real terminal interface</b></td><td>Full TUI with multiline editing, slash-command autocomplete, conversation history, interrupt-and-redirect, and streaming tool output.</td></tr>
@@ -33,24 +33,24 @@ Use any model you want — [Nous Portal](https://portal.nousresearch.com), [Open
 ### Linux, macOS, WSL2, Termux
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/NousResearch/shaggy-agent/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/shaggyaratia-69/shaggy-agent/main/scripts/install.sh | bash
 ```
 
 ### Windows (native, PowerShell) — Early Beta
 
-> **Heads up:** Native Windows support is **early beta**. It installs and runs, but hasn't been road-tested as broadly as our Linux/macOS/WSL2 paths. Please [file issues](https://github.com/NousResearch/shaggy-agent/issues) when you hit rough edges. For the most battle-tested Windows setup today, run the Linux/macOS one-liner above inside **WSL2**.
+> **Heads up:** Native Windows support is **early beta**. It installs and runs, but hasn't been road-tested as broadly as our Linux/macOS/WSL2 paths. Please [file issues](https://github.com/shaggyaratia-69/shaggy-agent/issues) when you hit rough edges. For the most battle-tested Windows setup today, run the Linux/macOS one-liner above inside **WSL2**.
 
 Run this in PowerShell:
 
 ```powershell
-iex (irm https://raw.githubusercontent.com/NousResearch/shaggy-agent/main/scripts/install.ps1)
+iex (irm https://raw.githubusercontent.com/shaggyaratia-69/shaggy-agent/main/scripts/install.ps1)
 ```
 
 The installer handles everything: uv, Python 3.11, Node.js, ripgrep, ffmpeg, **and a portable Git Bash** (MinGit, unpacked to `%LOCALAPPDATA%\shaggy\git` — no admin required, completely isolated from any system Git install).  Shaggy uses this bundled Git Bash to run shell commands.
 
 If you already have Git installed, the installer detects it and uses that instead.  Otherwise a ~45MB MinGit download is all you need — it won't touch or interfere with any system Git.
 
-> **Android / Termux:** The tested manual path is documented in the [Termux guide](https://shaggy-agent.nousresearch.com/docs/getting-started/termux). On Termux, Shaggy installs a curated `.[termux]` extra because the full `.[all]` extra currently pulls Android-incompatible voice dependencies.
+> **Android / Termux:** The tested manual path is documented in the [Termux guide](https://shaggyaratia-69.github.io/shaggy-agent/docs/getting-started/termux). On Termux, Shaggy installs a curated `.[termux]` extra because the full `.[all]` extra currently pulls Android-incompatible voice dependencies.
 >
 > **Windows:** Native Windows is supported as an **early beta** — the PowerShell one-liner above installs everything, but expect rough edges and please file issues when you hit them. If you'd rather use WSL2 (our most battle-tested Windows path), the Linux command works there too. Native Windows install lives under `%LOCALAPPDATA%\shaggy`; WSL2 installs under `~/.shaggy` as on Linux.  The only Shaggy feature that currently needs WSL2 specifically is the browser-based dashboard chat pane (it uses a POSIX PTY — classic CLI and gateway both run natively).
 
@@ -77,7 +77,7 @@ shaggy update       # Update to the latest version
 shaggy doctor       # Diagnose any issues
 ```
 
-📖 **[Full documentation →](https://shaggy-agent.nousresearch.com/docs/)**
+📖 **[Full documentation →](https://shaggyaratia-69.github.io/shaggy-agent/docs/)**
 
 ## CLI vs Messaging Quick Reference
 
@@ -95,31 +95,31 @@ Shaggy has two entry points: start the terminal UI with `shaggy`, or run the gat
 | Interrupt current work | `Ctrl+C` or send a new message | `/stop` or send a new message |
 | Platform-specific status | `/platforms` | `/status`, `/sethome` |
 
-For the full command lists, see the [CLI guide](https://shaggy-agent.nousresearch.com/docs/user-guide/cli) and the [Messaging Gateway guide](https://shaggy-agent.nousresearch.com/docs/user-guide/messaging).
+For the full command lists, see the [CLI guide](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/cli) and the [Messaging Gateway guide](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/messaging).
 
 ---
 
 ## Documentation
 
-All documentation lives at **[shaggy-agent.nousresearch.com/docs](https://shaggy-agent.nousresearch.com/docs/)**:
+All documentation lives at **[shaggyaratia-69.github.io/shaggy-agent/docs](https://shaggyaratia-69.github.io/shaggy-agent/docs/)**:
 
 | Section | What's Covered |
 |---------|---------------|
-| [Quickstart](https://shaggy-agent.nousresearch.com/docs/getting-started/quickstart) | Install → setup → first conversation in 2 minutes |
-| [CLI Usage](https://shaggy-agent.nousresearch.com/docs/user-guide/cli) | Commands, keybindings, personalities, sessions |
-| [Configuration](https://shaggy-agent.nousresearch.com/docs/user-guide/configuration) | Config file, providers, models, all options |
-| [Messaging Gateway](https://shaggy-agent.nousresearch.com/docs/user-guide/messaging) | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant |
-| [Security](https://shaggy-agent.nousresearch.com/docs/user-guide/security) | Command approval, DM pairing, container isolation |
-| [Tools & Toolsets](https://shaggy-agent.nousresearch.com/docs/user-guide/features/tools) | 40+ tools, toolset system, terminal backends |
-| [Skills System](https://shaggy-agent.nousresearch.com/docs/user-guide/features/skills) | Procedural memory, Skills Hub, creating skills |
-| [Memory](https://shaggy-agent.nousresearch.com/docs/user-guide/features/memory) | Persistent memory, user profiles, best practices |
-| [MCP Integration](https://shaggy-agent.nousresearch.com/docs/user-guide/features/mcp) | Connect any MCP server for extended capabilities |
-| [Cron Scheduling](https://shaggy-agent.nousresearch.com/docs/user-guide/features/cron) | Scheduled tasks with platform delivery |
-| [Context Files](https://shaggy-agent.nousresearch.com/docs/user-guide/features/context-files) | Project context that shapes every conversation |
-| [Architecture](https://shaggy-agent.nousresearch.com/docs/developer-guide/architecture) | Project structure, agent loop, key classes |
-| [Contributing](https://shaggy-agent.nousresearch.com/docs/developer-guide/contributing) | Development setup, PR process, code style |
-| [CLI Reference](https://shaggy-agent.nousresearch.com/docs/reference/cli-commands) | All commands and flags |
-| [Environment Variables](https://shaggy-agent.nousresearch.com/docs/reference/environment-variables) | Complete env var reference |
+| [Quickstart](https://shaggyaratia-69.github.io/shaggy-agent/docs/getting-started/quickstart) | Install → setup → first conversation in 2 minutes |
+| [CLI Usage](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/cli) | Commands, keybindings, personalities, sessions |
+| [Configuration](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/configuration) | Config file, providers, models, all options |
+| [Messaging Gateway](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/messaging) | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant |
+| [Security](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/security) | Command approval, DM pairing, container isolation |
+| [Tools & Toolsets](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/tools) | 40+ tools, toolset system, terminal backends |
+| [Skills System](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/skills) | Procedural memory, Skills Hub, creating skills |
+| [Memory](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/memory) | Persistent memory, user profiles, best practices |
+| [MCP Integration](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/mcp) | Connect any MCP server for extended capabilities |
+| [Cron Scheduling](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/cron) | Scheduled tasks with platform delivery |
+| [Context Files](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/context-files) | Project context that shapes every conversation |
+| [Architecture](https://shaggyaratia-69.github.io/shaggy-agent/docs/developer-guide/architecture) | Project structure, agent loop, key classes |
+| [Contributing](https://shaggyaratia-69.github.io/shaggy-agent/docs/developer-guide/contributing) | Development setup, PR process, code style |
+| [CLI Reference](https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/cli-commands) | All commands and flags |
+| [Environment Variables](https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/environment-variables) | Complete env var reference |
 
 ---
 
@@ -154,12 +154,12 @@ See `shaggy claw migrate --help` for all options, or use the `openclaw-migration
 
 ## Contributing
 
-We welcome contributions! See the [Contributing Guide](https://shaggy-agent.nousresearch.com/docs/developer-guide/contributing) for development setup, code style, and PR process.
+We welcome contributions! See the [Contributing Guide](https://shaggyaratia-69.github.io/shaggy-agent/docs/developer-guide/contributing) for development setup, code style, and PR process.
 
 Quick start for contributors — clone and go with `setup-shaggy.sh`:
 
 ```bash
-git clone https://github.com/NousResearch/shaggy-agent.git
+git clone https://github.com/shaggyaratia-69/shaggy-agent.git
 cd shaggy-agent
 ./setup-shaggy.sh     # installs uv, creates venv, installs .[all], symlinks ~/.local/bin/shaggy
 ./shaggy              # auto-detects the venv, no need to `source` first
@@ -179,9 +179,9 @@ scripts/run_tests.sh
 
 ## Community
 
-- 💬 [Discord](https://discord.gg/NousResearch)
+- 💬 [Discord](https://discord.gg/cherriesandco)
 - 📚 [Skills Hub](https://agentskills.io)
-- 🐛 [Issues](https://github.com/NousResearch/shaggy-agent/issues)
+- 🐛 [Issues](https://github.com/shaggyaratia-69/shaggy-agent/issues)
 - 🔌 [computer-use-linux](https://github.com/avifenesh/computer-use-linux) — Linux desktop-control MCP server for Shaggy and other MCP hosts, with AT-SPI accessibility trees, Wayland/X11 input, screenshots, and compositor window targeting.
 - 🔌 [ShaggyClaw](https://github.com/AaronWong1999/shaggyclaw) — Community WeChat bridge: Run Shaggy Agent and OpenClaw on the same WeChat account.
 
@@ -191,4 +191,4 @@ scripts/run_tests.sh
 
 MIT — see [LICENSE](LICENSE).
 
-Built by [Cherries and Co](https://nousresearch.com).
+Built by [Cherries and Co](https://www.cherriesandco.com).

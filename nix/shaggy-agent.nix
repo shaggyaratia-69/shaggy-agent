@@ -203,7 +203,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     description = "AI agent with advanced tool-calling capabilities";
-    homepage = "https://github.com/NousResearch/shaggy-agent";
+    homepage = "https://github.com/shaggyaratia-69/shaggy-agent";
     mainProgram = "shaggy";
     license = licenses.mit;
     platforms = platforms.unix;

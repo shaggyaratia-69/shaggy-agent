@@ -15,7 +15,7 @@
 
 [Unit]
 Description=Shaggy Kanban dispatcher (DEPRECATED standalone daemon — prefer gateway-embedded dispatch)
-Documentation=https://shaggy-agent.nousresearch.com/docs/user-guide/features/kanban
+Documentation=https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/kanban
 After=network.target
 
 [Service]

@@ -1,11 +1,11 @@
 blank_issues_enabled: true
 contact_links:
   - name: 💬 Cherries and Co Discord
-    url: https://discord.gg/NousResearch
+    url: https://discord.gg/cherriesandco
     about: For quick questions, showcasing projects, sharing skills, and community chat.
   - name: 📖 Documentation
-    url: https://github.com/NousResearch/shaggy-agent/blob/main/README.md
+    url: https://github.com/shaggyaratia-69/shaggy-agent/blob/main/README.md
     about: Check the README and docs before opening an issue.
   - name: 🤝 Contributing Guide
-    url: https://github.com/NousResearch/shaggy-agent/blob/main/CONTRIBUTING.md
+    url: https://github.com/shaggyaratia-69/shaggy-agent/blob/main/CONTRIBUTING.md
     about: Read this before submitting a PR.

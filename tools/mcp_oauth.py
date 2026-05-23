@@ -414,7 +414,7 @@ async def _redirect_handler(authorization_url: str) -> None:
             f"\n"
             f"    ssh -N -L {_oauth_port}:127.0.0.1:{_oauth_port} <user>@<this-host>\n"
             f"\n"
-            f"  Then open the URL above. See: https://shaggy-agent.nousresearch.com/docs/guides/oauth-over-ssh\n",
+            f"  Then open the URL above. See: https://shaggyaratia-69.github.io/shaggy-agent/docs/guides/oauth-over-ssh\n",
             file=sys.stderr,
         )
 

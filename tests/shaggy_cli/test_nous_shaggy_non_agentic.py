@@ -1,4 +1,4 @@
-"""Tests for the Nous-Shaggy-3/4 non-agentic warning detector.
+"""Tests for the Shaggy-3/4 non-agentic warning detector.
 
 Prior to this check, the warning fired on any model whose name contained
 ``"shaggy"`` anywhere (case-insensitive). That false-positived on unrelated
@@ -23,8 +23,8 @@ from shaggy_cli.model_switch import (
 @pytest.mark.parametrize(
     "model_name",
     [
-        "NousResearch/Shaggy-3-Llama-3.1-70B",
-        "NousResearch/Shaggy-3-Llama-3.1-405B",
+        "shaggyaratia-69/Shaggy-3-Llama-3.1-70B",
+        "shaggyaratia-69/Shaggy-3-Llama-3.1-405B",
         "shaggy-3",
         "Shaggy-3",
         "shaggy-4",
@@ -32,13 +32,13 @@ from shaggy_cli.model_switch import (
         "shaggy_4_70b",
         "openrouter/shaggy3:70b",
         "openrouter/nousresearch/shaggy-4-405b",
-        "NousResearch/Shaggy3",
+        "shaggyaratia-69/Shaggy3",
         "shaggy-3.1",
     ],
 )
-def test_matches_real_nous_shaggy_chat_models(model_name: str) -> None:
+def test_matches_real_shaggy_chat_models(model_name: str) -> None:
     assert is_nous_shaggy_non_agentic(model_name), (
-        f"expected {model_name!r} to be flagged as Nous Shaggy 3/4"
+        f"expected {model_name!r} to be flagged as Shaggy 3/4"
     )
     assert _check_shaggy_model_warning(model_name) == _SHAGGY_MODEL_WARNING
 
@@ -63,7 +63,7 @@ def test_matches_real_nous_shaggy_chat_models(model_name: str) -> None:
         # Non-chat Shaggy models we don't warn about
         "shaggy-llm-2",
         "shaggy2-pro",
-        "nous-shaggy-2-mistral",
+        "shaggy-2-mistral",
         # Edge cases
         "",
         "shaggy",  # bare "shaggy" isn't the 3/4 family
@@ -73,7 +73,7 @@ def test_matches_real_nous_shaggy_chat_models(model_name: str) -> None:
 )
 def test_does_not_match_unrelated_models(model_name: str) -> None:
     assert not is_nous_shaggy_non_agentic(model_name), (
-        f"expected {model_name!r} NOT to be flagged as Nous Shaggy 3/4"
+        f"expected {model_name!r} NOT to be flagged as Shaggy 3/4"
     )
     assert _check_shaggy_model_warning(model_name) == ""
 

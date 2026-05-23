@@ -46,7 +46,7 @@ That does not stop Shaggy from working well as a phone-native CLI agent — it j
 Shaggy now ships a Termux-aware installer path:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/NousResearch/shaggy-agent/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/shaggyaratia-69/shaggy-agent/main/scripts/install.sh | bash
 ```
 
 On Termux, the installer automatically:
@@ -80,7 +80,7 @@ Why these packages?
 ### 2. Clone Shaggy
 
 ```bash
-git clone --recurse-submodules https://github.com/NousResearch/shaggy-agent.git
+git clone --recurse-submodules https://github.com/shaggyaratia-69/shaggy-agent.git
 cd shaggy-agent
 ```
 

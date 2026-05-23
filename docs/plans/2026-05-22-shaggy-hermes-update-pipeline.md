@@ -1,10 +1,10 @@
 # Shaggy Agent Update Pipeline Implementation Plan
 
-> **For Hermes/Shaggy maintainers:** use this plan whenever upstream Shaggy Agent changes must be ported into Shaggy Agent.
+> **For Shaggy maintainers:** use this plan whenever upstream runtime changes must be ported into Shaggy Agent.
 
 **Goal:** Maintain a repeatable local-first pipeline that pulls useful upstream Shaggy Agent improvements into Shaggy Agent, preserves Shaggy branding and customer protections, rebuilds the install package, and verifies a clean update path.
 
-**Architecture:** Treat `[LOCAL_USER_HOME]/.hermes/hermes-agent` as upstream input and `[LOCAL_USER_HOME]/Projects/shaggy-agent` as the product source. Copy or cherry-pick changes deliberately, reapply Shaggy branding/product guards, then rebuild from Shaggy source into the customer ZIP. Dashboard/Kanban changes are accepted only when the Shaggy dashboard remains writable and customer-facing.
+**Architecture:** Treat the private upstream runtime checkout as implementation input and `[LOCAL_USER_HOME]/Projects/shaggy-agent` as the product source. Copy or cherry-pick changes deliberately, reapply Shaggy branding/product guards, then rebuild from Shaggy source into the customer ZIP. Dashboard/Kanban changes are accepted only when the Shaggy dashboard remains writable and customer-facing.
 
 **Tech Stack:** Python 3.11+, setuptools wheel build, pytest, Shaggy dashboard React bundle/plugin assets, shell/PowerShell installers, local browser QA.
 
@@ -14,16 +14,16 @@
 
 1. Do not deploy to Cloudflare or update any live public website unless Rahim explicitly says **deploy live** or **publish**.
 2. Always create a timestamped backup of `[LOCAL_USER_HOME]/Projects/shaggy-agent` before changing source.
-3. Never copy live Hermes runtime secrets, `.env`, auth files, memory, tokens, credentials, private local paths, or business data into Shaggy packages.
-4. Public/customer files must not expose `Shaggy Agent`, `Cherries and Co`, `SHAGGY AGENT`, `Shaggy`, private implementation paths, tokens, or installer passwords.
+3. Never copy live runtime secrets, `.env`, auth files, memory, tokens, credentials, private local paths, or business data into Shaggy packages.
+4. Public/customer files must not expose old upstream branding, private implementation paths, tokens, or installer passwords.
 5. Keep implementation/provider internals only where technically required; do not expose them publicly.
 
 ## Source update steps
 
-1. Inspect upstream Hermes status:
+1. Inspect upstream runtime status:
    ```bash
-   git -C [LOCAL_USER_HOME]/.hermes/hermes-agent status --short
-   git -C [LOCAL_USER_HOME]/.hermes/hermes-agent log -1 --oneline
+   git -C [LOCAL_USER_HOME]/private-upstream-runtime status --short
+   git -C [LOCAL_USER_HOME]/private-upstream-runtime log -1 --oneline
    ```
 2. Inspect Shaggy status:
    ```bash
@@ -37,7 +37,7 @@
      [LOCAL_USER_HOME]/Projects/shaggy-agent/ "$BACKUP/"
    echo "$BACKUP"
    ```
-4. Compare target files with upstream. Prefer small patches over blind overwrite. If upstream contains visible Hermes copy, convert to Shaggy copy before committing.
+4. Compare target files with upstream. Prefer small patches over blind overwrite. If upstream contains visible old-brand copy, convert to Shaggy copy before committing.
 
 ## Dashboard / Kanban acceptance
 
@@ -49,7 +49,7 @@ Shaggy dashboard/Kanban must remain a Shaggy-branded writable board:
 - It must use Shaggy runtime paths/imports such as `shaggy_cli.kanban_db` and Shaggy dashboard session token names.
 - Browser QA must verify no console errors and no visible old public branding.
 
-Current Shaggy source has a richer plugin Kanban surface than the simple Hermes localStorage page. Keep the plugin route unless an upstream Hermes change is strictly better, then port the behavior into the plugin while preserving the writable API.
+Current Shaggy source has a richer plugin Kanban surface than the simple upstream localStorage page. Keep the plugin route unless an upstream change is strictly better, then port the behavior into the plugin while preserving the writable API.
 
 ## Required regression tests
 

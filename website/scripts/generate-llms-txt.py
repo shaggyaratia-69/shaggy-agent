@@ -9,8 +9,8 @@ Outputs:
                                     comments separating files.
 
 Both publish at:
-  https://shaggy-agent.nousresearch.com/docs/llms.txt
-  https://shaggy-agent.nousresearch.com/docs/llms-full.txt
+  https://shaggyaratia-69.github.io/shaggy-agent/docs/llms.txt
+  https://shaggyaratia-69.github.io/shaggy-agent/docs/llms-full.txt
 
 The `/docs/` prefix is not a mistake — Docusaurus serves `website/static/`
 at the `docs/` base path. Clients and IDE plugins that probe the classic
@@ -31,7 +31,7 @@ WEBSITE = SCRIPT_DIR.parent
 DOCS = WEBSITE / "docs"
 STATIC = WEBSITE / "static"
 
-SITE_BASE = "https://shaggy-agent.nousresearch.com/docs"
+SITE_BASE = "https://shaggyaratia-69.github.io/shaggy-agent/docs"
 
 # Curated sections for llms.txt — mirrors the product story, not the filesystem.
 # Each entry: (docs-relative path without .md, display title, optional short desc).
@@ -210,12 +210,12 @@ def emit_llms_index() -> str:
     )
     lines.append("")
     lines.append(
-        "Install: `curl -fsSL https://raw.githubusercontent.com/NousResearch/"
+        "Install: `curl -fsSL https://raw.githubusercontent.com/shaggyaratia-69/"
         "shaggy-agent/main/scripts/install.sh | bash`  "
         "(Linux, macOS, WSL2, Termux)"
     )
     lines.append("")
-    lines.append("Repo: https://github.com/NousResearch/shaggy-agent")
+    lines.append("Repo: https://github.com/shaggyaratia-69/shaggy-agent")
     lines.append("")
 
     for section, items in SECTIONS:
@@ -248,8 +248,8 @@ def emit_llms_full() -> str:
             "Started, Using Shaggy, Features, Messaging, Integrations, Guides, "
             "Developer Guide, Reference, then everything else.\n"
         ),
-        "Canonical site: https://shaggy-agent.nousresearch.com/docs\n",
-        "Short index: https://shaggy-agent.nousresearch.com/docs/llms.txt\n",
+        "Canonical site: https://shaggyaratia-69.github.io/shaggy-agent/docs\n",
+        "Short index: https://shaggyaratia-69.github.io/shaggy-agent/docs/llms.txt\n",
         "\n---\n\n",
     ]
 

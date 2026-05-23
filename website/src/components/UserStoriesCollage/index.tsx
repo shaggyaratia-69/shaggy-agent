@@ -295,14 +295,14 @@ export default function UserStoriesCollage(): JSX.Element {
       <div className={styles.footer}>
         Built something with Shaggy?{' '}
         <a
-          href="https://github.com/NousResearch/shaggy-agent/edit/main/website/src/data/userStories.json"
+          href="https://github.com/shaggyaratia-69/shaggy-agent/edit/main/website/src/data/userStories.json"
           target="_blank"
           rel="noopener noreferrer"
         >
           Add your story to this page
         </a>{' '}
         by editing <code>userStories.json</code>, or post it in the{' '}
-        <a href="https://discord.gg/NousResearch" target="_blank" rel="noopener noreferrer">
+        <a href="https://discord.gg/cherriesandco" target="_blank" rel="noopener noreferrer">
           Cherries and Co Discord
         </a>{' '}
         and we&apos;ll pick it up.

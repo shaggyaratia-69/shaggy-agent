@@ -1,7 +1,7 @@
 name: langfuse
 version: "1.0.0"
 description: "Optional Langfuse observability for Shaggy — traces conversations, LLM calls, and tool usage. Opt-in via `shaggy plugins enable observability/langfuse` (or check the box in `shaggy plugins`)."
-author: NousResearch
+author: shaggyaratia-69
 requires_env:
   - SHAGGY_LANGFUSE_PUBLIC_KEY
   - SHAGGY_LANGFUSE_SECRET_KEY

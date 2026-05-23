@@ -6385,7 +6385,7 @@ def _print_curator_first_run_notice() -> None:
     print("  Preview now:  shaggy curator run --dry-run")
     print("  Pause it:     shaggy curator pause")
     print(
-        "  Docs:         https://shaggy-agent.nousresearch.com/docs/user-guide/features/curator"
+        "  Docs:         https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/curator"
     )
 
 
@@ -6591,7 +6591,7 @@ def _update_via_zip(args):
 
     branch = "main"
     zip_url = (
-        f"https://github.com/NousResearch/shaggy-agent/archive/refs/heads/{branch}.zip"
+        f"https://github.com/shaggyaratia-69/shaggy-agent/archive/refs/heads/{branch}.zip"
     )
 
     print("→ Downloading latest version...")
@@ -6918,12 +6918,12 @@ def _restore_stashed_changes(
 # =========================================================================
 
 OFFICIAL_REPO_URLS = {
-    "https://github.com/NousResearch/shaggy-agent.git",
-    "git@github.com:NousResearch/shaggy-agent.git",
-    "https://github.com/NousResearch/shaggy-agent",
-    "git@github.com:NousResearch/shaggy-agent",
+    "https://github.com/shaggyaratia-69/shaggy-agent.git",
+    "git@github.com:shaggyaratia-69/shaggy-agent.git",
+    "https://github.com/shaggyaratia-69/shaggy-agent",
+    "git@github.com:shaggyaratia-69/shaggy-agent",
 }
-OFFICIAL_REPO_URL = "https://github.com/NousResearch/shaggy-agent.git"
+OFFICIAL_REPO_URL = "https://github.com/shaggyaratia-69/shaggy-agent.git"
 SKIP_UPSTREAM_PROMPT_FILE = ".skip_upstream_prompt"
 
 
@@ -7057,7 +7057,7 @@ def _sync_with_upstream_if_needed(git_cmd: list[str], cwd: Path) -> None:
         # Ask user if they want to add upstream
         print()
         print("ℹ Your fork is not tracking the official Shaggy repository.")
-        print("  This means you may miss updates from NousResearch/shaggy-agent.")
+        print("  This means you may miss updates from shaggyaratia-69/shaggy-agent.")
         print()
         try:
             response = (
@@ -7071,7 +7071,7 @@ def _sync_with_upstream_if_needed(git_cmd: list[str], cwd: Path) -> None:
             print("→ Adding upstream remote...")
             if _add_upstream_remote(git_cmd, cwd):
                 print(
-                    "  ✓ Added upstream: https://github.com/NousResearch/shaggy-agent.git"
+                    "  ✓ Added upstream: https://github.com/shaggyaratia-69/shaggy-agent.git"
                 )
                 has_upstream = True
             else:
@@ -7079,7 +7079,7 @@ def _sync_with_upstream_if_needed(git_cmd: list[str], cwd: Path) -> None:
                 return
         else:
             print(
-                "  Skipped. Run 'git remote add upstream https://github.com/NousResearch/shaggy-agent.git' to add later."
+                "  Skipped. Run 'git remote add upstream https://github.com/shaggyaratia-69/shaggy-agent.git' to add later."
             )
             _mark_skip_upstream_prompt()
             return
@@ -8317,7 +8317,7 @@ def _cmd_update_impl(args, gateway_mode: bool):
                 return
             print("✗ Not a git repository. Please reinstall:")
             print(
-                "  curl -fsSL https://raw.githubusercontent.com/NousResearch/shaggy-agent/main/scripts/install.sh | bash"
+                "  curl -fsSL https://raw.githubusercontent.com/shaggyaratia-69/shaggy-agent/main/scripts/install.sh | bash"
             )
             sys.exit(1)
 
@@ -10501,7 +10501,7 @@ def main():
             "Manage the fallback provider chain.  Fallback providers are tried "
             "in order when the primary model fails with rate-limit, overload, or "
             "connection errors.  See: "
-            "https://shaggy-agent.nousresearch.com/docs/user-guide/features/fallback-providers"
+            "https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/fallback-providers"
         ),
     )
     fallback_subparsers = fallback_parser.add_subparsers(dest="fallback_command")

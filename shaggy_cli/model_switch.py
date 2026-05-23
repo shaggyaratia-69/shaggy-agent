@@ -63,7 +63,7 @@ _SHAGGY_MODEL_WARNING = (
 # happen to carry "shaggy" in their tag but are fully tool-capable.
 #
 # Positive examples the regex must match:
-#   NousResearch/Shaggy-3-Llama-3.1-70B, shaggy-4-405b, openrouter/shaggy3:70b
+#   shaggyaratia-69/Shaggy-3-Llama-3.1-70B, shaggy-4-405b, openrouter/shaggy3:70b
 # Negative examples it must NOT match:
 #   shaggy-brain:qwen3-14b-ctx16k, qwen3:14b, claude-opus-4-6
 _NOUS_SHAGGY_NON_AGENTIC_RE = re.compile(
@@ -1162,7 +1162,7 @@ def list_authenticated_providers(
     curated: dict[str, list[str]] = dict(_PROVIDER_MODELS)
     curated["openrouter"] = [mid for mid, _ in OPENROUTER_MODELS]
     # "nous" pulls from the remote model-catalog manifest published at
-    # https://shaggy-agent.nousresearch.com/docs/api/model-catalog.json so
+    # https://shaggyaratia-69.github.io/shaggy-agent/docs/api/model-catalog.json so
     # newly added Portal models surface in the /model picker without
     # requiring a Shaggy release. Falls back to the in-repo
     # _PROVIDER_MODELS["nous"] snapshot when the manifest is unreachable.

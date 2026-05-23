@@ -15,19 +15,19 @@ Shaggy isn't just a CLI tool. You can import `AIAgent` directly and use it progr
 Install Shaggy directly from the repository:
 
 ```bash
-pip install git+https://github.com/NousResearch/shaggy-agent.git
+pip install git+https://github.com/shaggyaratia-69/shaggy-agent.git
 ```
 
 Or with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uv pip install git+https://github.com/NousResearch/shaggy-agent.git
+uv pip install git+https://github.com/shaggyaratia-69/shaggy-agent.git
 ```
 
 You can also pin it in your `requirements.txt`:
 
 ```text
-shaggy-agent @ git+https://github.com/NousResearch/shaggy-agent.git
+shaggy-agent @ git+https://github.com/shaggyaratia-69/shaggy-agent.git
 ```
 
 :::tip

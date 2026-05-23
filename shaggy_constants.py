@@ -54,7 +54,7 @@ def get_shaggy_home() -> Path:
     callers that import this at load time.  Subprocess spawners are
     expected to propagate ``SHAGGY_HOME`` explicitly (see the systemd
     template in ``shaggy_cli/gateway.py`` and the kanban dispatcher in
-    ``shaggy_cli/kanban_db.py``).  See https://github.com/NousResearch/shaggy-agent/issues/18594.
+    ``shaggy_cli/kanban_db.py``).  See https://github.com/shaggyaratia-69/shaggy-agent/issues/18594.
     """
     override = get_shaggy_home_override()
     if override:

@@ -15,7 +15,7 @@ metadata:
 
 # Spotify
 
-Control the user's Spotify account via the Shaggy Spotify toolset (7 tools). Setup guide: https://shaggy-agent.nousresearch.com/docs/user-guide/features/spotify
+Control the user's Spotify account via the Shaggy Spotify toolset (7 tools). Setup guide: https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/spotify
 
 ## When to use this skill
 

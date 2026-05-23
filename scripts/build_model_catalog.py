@@ -17,7 +17,7 @@ Usage::
 Output: ``website/static/api/model-catalog.json``
 
 Live URL (after ``deploy-site.yml`` runs on merge to main):
-``https://shaggy-agent.nousresearch.com/docs/api/model-catalog.json``
+``https://shaggyaratia-69.github.io/shaggy-agent/docs/api/model-catalog.json``
 """
 
 from __future__ import annotations
@@ -45,7 +45,7 @@ def build_catalog() -> dict:
         "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "metadata": {
             "source": "shaggy-agent repo",
-            "docs": "https://shaggy-agent.nousresearch.com/docs/reference/model-catalog",
+            "docs": "https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/model-catalog",
         },
         "providers": {
             "openrouter": {

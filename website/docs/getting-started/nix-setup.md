@@ -35,11 +35,11 @@ No clone needed. Nix fetches, builds, and runs everything:
 
 ```bash
 # Run directly (builds on first use, cached after)
-nix run github:NousResearch/shaggy-agent -- setup
-nix run github:NousResearch/shaggy-agent -- chat
+nix run github:shaggyaratia-69/shaggy-agent -- setup
+nix run github:shaggyaratia-69/shaggy-agent -- chat
 
 # Or install persistently
-nix profile install github:NousResearch/shaggy-agent
+nix profile install github:shaggyaratia-69/shaggy-agent
 shaggy setup
 shaggy chat
 ```
@@ -50,7 +50,7 @@ After `nix profile install`, `shaggy`, `shaggy-agent`, and `shaggy-acp` are on y
 <summary><strong>Building from a local clone</strong></summary>
 
 ```bash
-git clone https://github.com/NousResearch/shaggy-agent.git
+git clone https://github.com/shaggyaratia-69/shaggy-agent.git
 cd shaggy-agent
 nix build
 ./result/bin/shaggy setup
@@ -75,7 +75,7 @@ This module requires NixOS. For non-NixOS systems (macOS, other Linux distros), 
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    shaggy-agent.url = "github:NousResearch/shaggy-agent";
+    shaggy-agent.url = "github:shaggyaratia-69/shaggy-agent";
   };
 
   outputs = { nixpkgs, shaggy-agent, ... }: {
@@ -685,7 +685,7 @@ External flakes can override the package directly:
 
 ```nix
 {
-  inputs.shaggy-agent.url = "github:NousResearch/shaggy-agent";
+  inputs.shaggy-agent.url = "github:shaggyaratia-69/shaggy-agent";
   outputs = { shaggy-agent, nixpkgs, ... }: {
     nixpkgs.overlays = [ shaggy-agent.overlays.default ];
     # Then:

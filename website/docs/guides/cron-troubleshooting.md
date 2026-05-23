@@ -214,7 +214,7 @@ If you've worked through this guide and the issue persists:
 
 1. Run the job with `shaggy cron run <job_id>` (fires on next gateway tick) and watch for errors in the chat output
 2. Check `~/.shaggy/logs/agent.log` for scheduler messages and `~/.shaggy/logs/errors.log` for warnings
-3. Open an issue at [github.com/NousResearch/shaggy-agent](https://github.com/NousResearch/shaggy-agent) with:
+3. Open an issue at [github.com/shaggyaratia-69/shaggy-agent](https://github.com/shaggyaratia-69/shaggy-agent) with:
    - The job ID and schedule
    - The delivery target
    - What you expected vs. what happened

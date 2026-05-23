@@ -13,7 +13,7 @@ required_credential_files:
 metadata:
   shaggy:
     tags: [Google, Gmail, Calendar, Drive, Sheets, Docs, Contacts, Email, OAuth]
-    homepage: https://github.com/NousResearch/shaggy-agent
+    homepage: https://github.com/shaggyaratia-69/shaggy-agent
     related_skills: [himalaya]
 ---
 

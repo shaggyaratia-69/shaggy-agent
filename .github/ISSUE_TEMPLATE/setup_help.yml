@@ -12,8 +12,8 @@ body:
         - Run `shaggy debug share` and paste the links in the Debug Report section below
         - If you're in a chat session, you can use `/debug` instead — it does the same thing
         - Try `shaggy update` to get the latest version
-        - Check the [README troubleshooting section](https://github.com/NousResearch/shaggy-agent#troubleshooting)
-        - For general questions, consider the [Cherries and Co Discord](https://discord.gg/NousResearch) for faster help
+        - Check the [README troubleshooting section](https://github.com/shaggyaratia-69/shaggy-agent#troubleshooting)
+        - For general questions, consider the [Cherries and Co Discord](https://discord.gg/cherriesandco) for faster help
 
   - type: textarea
     id: description

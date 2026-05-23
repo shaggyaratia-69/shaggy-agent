@@ -46,13 +46,13 @@ People use Shaggy for software development, research, system administration, dat
 
 **This skill helps you work with Shaggy Agent effectively** — setting it up, configuring features, spawning additional agent instances, troubleshooting issues, finding the right commands and settings, and understanding how the system works when you need to extend or contribute to it.
 
-**Docs:** https://shaggy-agent.nousresearch.com/docs/
+**Docs:** https://shaggyaratia-69.github.io/shaggy-agent/docs/
 
 ## Quick Start
 
 ```bash
 # Install
-curl -fsSL https://raw.githubusercontent.com/NousResearch/shaggy-agent/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/shaggyaratia-69/shaggy-agent/main/scripts/install.sh | bash
 
 # Interactive chat (default)
 shaggy
@@ -168,7 +168,7 @@ shaggy gateway setup        Configure platforms
 
 Supported platforms: Telegram, Discord, Slack, WhatsApp, Signal, Email, SMS, Matrix, Mattermost, Home Assistant, DingTalk, Feishu, WeCom, BlueBubbles (iMessage), Weixin (WeChat), API Server, Webhooks. Open WebUI connects via the API Server adapter.
 
-Platform docs: https://shaggy-agent.nousresearch.com/docs/user-guide/messaging/
+Platform docs: https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/messaging/
 
 ### Sessions
 
@@ -247,7 +247,7 @@ shaggy uninstall            Uninstall Shaggy
 
 Type these during an interactive chat session. New commands land fairly
 often; if something below looks stale, run `/help` in-session for the
-authoritative list or see the [live slash commands reference](https://shaggy-agent.nousresearch.com/docs/reference/slash-commands).
+authoritative list or see the [live slash commands reference](https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/slash-commands).
 The registry of record is `shaggy_cli/commands.py` — every consumer
 (autocomplete, Telegram menu, Slack mapping, `/help`) derives from it.
 
@@ -379,7 +379,7 @@ Edit with `shaggy config edit` or `shaggy config set section.key value`.
 | `delegation` | `model`, `provider`, `base_url`, `api_key`, `max_iterations` (50), `reasoning_effort` |
 | `checkpoints` | `enabled`, `max_snapshots` (50) |
 
-Full config reference: https://shaggy-agent.nousresearch.com/docs/user-guide/configuration
+Full config reference: https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/configuration
 
 ### Providers
 
@@ -410,7 +410,7 @@ Full config reference: https://shaggy-agent.nousresearch.com/docs/user-guide/con
 | Custom endpoint | Config | `model.base_url` + `model.api_key` in config.yaml |
 | GitHub Copilot ACP | External | `COPILOT_CLI_PATH` or Copilot CLI |
 
-Full provider docs: https://shaggy-agent.nousresearch.com/docs/integrations/providers
+Full provider docs: https://shaggyaratia-69.github.io/shaggy-agent/docs/integrations/providers
 
 ### Toolsets
 
@@ -670,7 +670,7 @@ the `cronjob` tool, the `shaggy cron` CLI (`list`, `add`, `edit`,
   header/footer instead of being mirrored into the target gateway
   session (keeps role alternation intact).
 
-User docs: https://shaggy-agent.nousresearch.com/docs/user-guide/features/cron
+User docs: https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/cron
 
 ### Curator (skill lifecycle)
 
@@ -691,7 +691,7 @@ so nothing is lost.
 
 Config: `curator.*` (`enabled`, `interval_hours`, `min_idle_hours`,
 `stale_after_days`, `archive_after_days`, `backup.*`).
-User docs: https://shaggy-agent.nousresearch.com/docs/user-guide/features/curator
+User docs: https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/curator
 
 ### Kanban (multi-agent work queue)
 
@@ -719,7 +719,7 @@ sessions still have zero `kanban_*` schema footprint unless configured.
   `SHAGGY_KANBAN_BOARD` pinned in env); tenant is a soft namespace
   within a board for workspace-path + memory-key isolation.
 
-User docs: https://shaggy-agent.nousresearch.com/docs/user-guide/features/kanban
+User docs: https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/kanban
 
 ---
 
@@ -870,18 +870,18 @@ shaggy config set auxiliary.vision.model <model_name>
 
 | Looking for... | Location |
 |----------------|----------|
-| Config options | `shaggy config edit` or [Configuration docs](https://shaggy-agent.nousresearch.com/docs/user-guide/configuration) |
-| Available tools | `shaggy tools list` or [Tools reference](https://shaggy-agent.nousresearch.com/docs/reference/tools-reference) |
-| Slash commands | `/help` in session or [Slash commands reference](https://shaggy-agent.nousresearch.com/docs/reference/slash-commands) |
-| Skills catalog | `shaggy skills browse` or [Skills catalog](https://shaggy-agent.nousresearch.com/docs/reference/skills-catalog) |
-| Provider setup | `shaggy model` or [Providers guide](https://shaggy-agent.nousresearch.com/docs/integrations/providers) |
-| Platform setup | `shaggy gateway setup` or [Messaging docs](https://shaggy-agent.nousresearch.com/docs/user-guide/messaging/) |
-| MCP servers | `shaggy mcp list` or [MCP guide](https://shaggy-agent.nousresearch.com/docs/user-guide/features/mcp) |
-| Profiles | `shaggy profile list` or [Profiles docs](https://shaggy-agent.nousresearch.com/docs/user-guide/profiles) |
-| Cron jobs | `shaggy cron list` or [Cron docs](https://shaggy-agent.nousresearch.com/docs/user-guide/features/cron) |
-| Memory | `shaggy memory status` or [Memory docs](https://shaggy-agent.nousresearch.com/docs/user-guide/features/memory) |
-| Env variables | `shaggy config env-path` or [Env vars reference](https://shaggy-agent.nousresearch.com/docs/reference/environment-variables) |
-| CLI commands | `shaggy --help` or [CLI reference](https://shaggy-agent.nousresearch.com/docs/reference/cli-commands) |
+| Config options | `shaggy config edit` or [Configuration docs](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/configuration) |
+| Available tools | `shaggy tools list` or [Tools reference](https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/tools-reference) |
+| Slash commands | `/help` in session or [Slash commands reference](https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/slash-commands) |
+| Skills catalog | `shaggy skills browse` or [Skills catalog](https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/skills-catalog) |
+| Provider setup | `shaggy model` or [Providers guide](https://shaggyaratia-69.github.io/shaggy-agent/docs/integrations/providers) |
+| Platform setup | `shaggy gateway setup` or [Messaging docs](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/messaging/) |
+| MCP servers | `shaggy mcp list` or [MCP guide](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/mcp) |
+| Profiles | `shaggy profile list` or [Profiles docs](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/profiles) |
+| Cron jobs | `shaggy cron list` or [Cron docs](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/cron) |
+| Memory | `shaggy memory status` or [Memory docs](https://shaggyaratia-69.github.io/shaggy-agent/docs/user-guide/features/memory) |
+| Env variables | `shaggy config env-path` or [Env vars reference](https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/environment-variables) |
+| CLI commands | `shaggy --help` or [CLI reference](https://shaggyaratia-69.github.io/shaggy-agent/docs/reference/cli-commands) |
 | Gateway logs | `~/.shaggy/logs/gateway.log` |
 | Session files | `~/.shaggy/sessions/` or `shaggy sessions browse` |
 | Source code | `~/.shaggy/shaggy-agent/` |
@@ -890,7 +890,7 @@ shaggy config set auxiliary.vision.model <model_name>
 
 ## Contributor Quick Reference
 
-For occasional contributors and PR authors. Full developer docs: https://shaggy-agent.nousresearch.com/docs/developer-guide/
+For occasional contributors and PR authors. Full developer docs: https://shaggyaratia-69.github.io/shaggy-agent/docs/developer-guide/
 
 ### Project Layout
 

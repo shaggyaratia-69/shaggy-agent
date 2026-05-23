@@ -66,7 +66,7 @@ Watch a GitHub repo (set `GITHUB_TOKEN` in `~/.shaggy/.env` to avoid the 60 req/
 
 ```bash
 python $SHAGGY_HOME/skills/devops/watchers/scripts/watch_github.py \
-  --name shaggy-issues --repo NousResearch/shaggy-agent --scope issues
+  --name shaggy-issues --repo shaggyaratia-69/shaggy-agent --scope issues
 ```
 
 Poll an arbitrary JSON API:
