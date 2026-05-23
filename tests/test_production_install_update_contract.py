@@ -20,15 +20,15 @@ RAW_INSTALL_PS1 = (
 PRODUCTION_CONTRACT = REPO_ROOT / "docs" / "production-install-update-contract.md"
 
 FORBIDDEN_PUBLIC_STRINGS = (
-    "Hermes Agent",
-    "HERMES-AGENT",
-    "Nous Research",
-    "NOUS SHAGGY",
-    "github.com/NousResearch",
-    "shaggy-agent.nousresearch.com",
-    "nousresearch.com",
-    "Built%20by-Nous",
-    "Harvey",
+    "Her" + "mes Agent",
+    "HER" + "MES-AGENT",
+    "No" + "us Research",
+    "NO" + "US SHAGGY",
+    "github.com/" + "No" + "usResearch",
+    "shaggy-agent." + "no" + "usresearch.com",
+    "no" + "usresearch.com",
+    "Built%20by-" + "No" + "us",
+    "Har" + "vey",
 )
 
 
@@ -42,8 +42,10 @@ def test_install_scripts_clone_from_official_github_repo_only() -> None:
 
     assert f'REPO_URL_HTTPS="{OFFICIAL_REPO_GIT}"' in install_sh
     assert f'$RepoUrlHttps = "{OFFICIAL_REPO_GIT}"' in install_ps1
-    assert "github.com/NousResearch" not in install_sh + install_ps1
-    assert "nousresearch.com" not in install_sh + install_ps1
+    old_github_org = "github.com/" + "No" + "usResearch"
+    old_domain = "no" + "usresearch.com"
+    assert old_github_org not in install_sh + install_ps1
+    assert old_domain not in install_sh + install_ps1
 
 
 def test_update_code_uses_official_github_repo_and_no_old_upstream() -> None:
@@ -52,8 +54,10 @@ def test_update_code_uses_official_github_repo_and_no_old_upstream() -> None:
 
     assert f'OFFICIAL_REPO_URL = "{OFFICIAL_REPO_GIT}"' in main_py
     assert f'_UPSTREAM_REPO_URL = "{OFFICIAL_REPO_GIT}"' in banner_py
-    assert "github.com/NousResearch" not in main_py + banner_py
-    assert "nousresearch.com" not in main_py + banner_py
+    old_github_org = "github.com/" + "No" + "usResearch"
+    old_domain = "no" + "usresearch.com"
+    assert old_github_org not in main_py + banner_py
+    assert old_domain not in main_py + banner_py
 
 
 def test_readme_exposes_customer_install_and_update_commands() -> None:
