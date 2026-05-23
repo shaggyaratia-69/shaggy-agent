@@ -1,0 +1,1 @@
+# Shaggy plugins package

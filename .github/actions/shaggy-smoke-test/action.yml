@@ -1,0 +1,47 @@
+name: Shaggy smoke test
+description: >
+  Run the image's built-in entrypoint against `--help` and `dashboard --help`
+  to catch basic runtime regressions before publishing.  Requires the image
+  to already be loaded into the local Docker daemon under `image`.
+
+  Works identically on amd64 and arm64 runners.
+
+inputs:
+  image:
+    description: Fully-qualified image tag (e.g. nousresearch/shaggy-agent:test)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Ensure /tmp/shaggy-test is shaggy-writable
+      shell: bash
+      run: |
+        # The image runs as the shaggy user (UID 10000).  GitHub Actions
+        # creates /tmp/shaggy-test root-owned by default, which shaggy
+        # can't write to — chown it to match the in-container UID before
+        # bind-mounting.  Real users doing `docker run -v ~/.shaggy:...`
+        # with their own UID hit the same issue and have their own
+        # remediations (SHAGGY_UID env var, or chown locally).
+        mkdir -p /tmp/shaggy-test
+        sudo chown -R 10000:10000 /tmp/shaggy-test
+
+    - name: shaggy --help
+      shell: bash
+      run: |
+        docker run --rm \
+          -v /tmp/shaggy-test:/opt/data \
+          --entrypoint /opt/shaggy/docker/entrypoint.sh \
+          "${{ inputs.image }}" --help
+
+    - name: shaggy dashboard --help
+      shell: bash
+      run: |
+        # Regression guard for #9153: dashboard was present in source but
+        # missing from the published image.  If this fails, something in
+        # the Dockerfile is excluding the dashboard subcommand from the
+        # installed package.
+        docker run --rm \
+          -v /tmp/shaggy-test:/opt/data \
+          --entrypoint /opt/shaggy/docker/entrypoint.sh \
+          "${{ inputs.image }}" dashboard --help

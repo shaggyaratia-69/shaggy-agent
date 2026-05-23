@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@shaggy/ink": ["src/types/shaggy-ink.d.ts"]
+    }
+  }
+}
