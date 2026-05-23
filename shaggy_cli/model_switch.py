@@ -73,7 +73,7 @@ _NOUS_SHAGGY_NON_AGENTIC_RE = re.compile(
 
 
 def is_nous_shaggy_non_agentic(model_name: str) -> bool:
-    """Return True if *model_name* is a real Nous Shaggy 3/4 chat model.
+    """Return True if *model_name* is a Shaggy 3/4 chat model.
 
     Used to decide whether to surface the non-agentic warning at startup.
     Callers in :mod:`cli.py` and here should go through this single helper
@@ -85,7 +85,7 @@ def is_nous_shaggy_non_agentic(model_name: str) -> bool:
 
 
 def _check_shaggy_model_warning(model_name: str) -> str:
-    """Return a warning string if *model_name* is a Nous Shaggy 3/4 chat model."""
+    """Return a warning string if *model_name* is a Shaggy 3/4 chat model."""
     if is_nous_shaggy_non_agentic(model_name):
         return _SHAGGY_MODEL_WARNING
     return ""

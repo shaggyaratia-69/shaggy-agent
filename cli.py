@@ -4737,7 +4737,7 @@ class ShaggyCLI:
                     "[dim]   Fix: Set model.context_length in config.yaml, or increase your server's context setting[/]"
                 )
 
-        # Warn if the configured model is a Nous Shaggy LLM (not agentic)
+        # Warn if the configured model is a Shaggy-branded chat LLM (not agentic)
         from shaggy_cli.model_switch import is_nous_shaggy_non_agentic
 
         model_name = getattr(self, "model", "") or ""
