@@ -1,8 +1,8 @@
-"""Contract checks for the Shaggy-from-Hermes update pipeline.
+"""Contract checks for the Shaggy production update pipeline.
 
-These tests protect the repeatable release flow Rahim wants: upstream Hermes
-improvements can be copied into Shaggy, but the customer-facing package must
-remain Shaggy-branded and the dashboard Kanban must stay writable.
+These tests protect the repeatable release flow Rahim wants: source updates
+can be copied into Shaggy locally, but the customer-facing package must remain
+Shaggy-branded and the dashboard Kanban must stay writable.
 """
 
 from __future__ import annotations
