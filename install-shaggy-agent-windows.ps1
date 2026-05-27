@@ -35,7 +35,9 @@ New-Item -ItemType Directory -Force -Path $InstallRoot, $BinDir, $DataDir | Out-
 
 # Keep Shaggy Agent data separate from any Shaggy installation on the laptop.
 [Environment]::SetEnvironmentVariable("SHAGGY_HOME", $DataDir, "User")
+[Environment]::SetEnvironmentVariable("SHAGGY_PRODUCT_DIR", $SourceDir, "User")
 $env:SHAGGY_HOME = $DataDir
+$env:SHAGGY_PRODUCT_DIR = $SourceDir
 
 # Install uv if missing.
 $uv = Get-Command uv -ErrorAction SilentlyContinue
@@ -81,6 +83,7 @@ $CmdPath = Join-Path $BinDir "shaggy.cmd"
 $Cmd = @"
 @echo off
 set "SHAGGY_HOME=$DataDir"
+set "SHAGGY_PRODUCT_DIR=$SourceDir"
 "$ShaggyExe" %*
 "@
 Set-Content -Path $CmdPath -Value $Cmd -Encoding ASCII
@@ -89,6 +92,7 @@ $AgentCmdPath = Join-Path $BinDir "shaggy-agent.cmd"
 $AgentCmd = @"
 @echo off
 set "SHAGGY_HOME=$DataDir"
+set "SHAGGY_PRODUCT_DIR=$SourceDir"
 "$ShaggyExe" %*
 "@
 Set-Content -Path $AgentCmdPath -Value $AgentCmd -Encoding ASCII

@@ -8249,23 +8249,55 @@ def cmd_update(args):
         _finalize_update_output(_update_io_state)
 
 
+def _find_product_update_wheel() -> Path | None:
+    """Return the newest bundled wheel from a portable product folder, if set.
+
+    Customer USB/zip installs are intentionally not tied to PyPI or a private
+    GitHub repository.  Their update source is the latest copied
+    Shaggy-Agent-Product folder, exposed by installers/wrappers through
+    SHAGGY_PRODUCT_DIR.
+    """
+    product_dir = os.environ.get("SHAGGY_PRODUCT_DIR", "").strip()
+    if not product_dir:
+        return None
+
+    dist_dir = Path(product_dir).expanduser() / "dist"
+    if not dist_dir.is_dir():
+        return None
+
+    wheels = sorted(dist_dir.glob("shaggy_agent-*.whl"), key=lambda p: p.name)
+    return wheels[-1] if wheels else None
+
+
 def _cmd_update_pip(args):
-    """Update Shaggy via pip (for PyPI installs)."""
+    """Update Shaggy via pip or the portable product folder."""
     from shaggy_cli import __version__
 
     print(f"→ Current version: {__version__}")
-    print("→ Checking PyPI for updates...")
 
+    product_wheel = _find_product_update_wheel()
     uv = shutil.which("uv")
-    if uv:
-        cmd = [uv, "pip", "install", "--upgrade", "shaggy-agent"]
+    if product_wheel is not None:
+        print(f"→ Updating from product package: {product_wheel}")
+        if uv:
+            cmd = [uv, "pip", "install", "--python", sys.executable, "--upgrade", str(product_wheel)]
+        else:
+            cmd = [sys.executable, "-m", "pip", "install", "--upgrade", str(product_wheel)]
     else:
-        cmd = [sys.executable, "-m", "pip", "install", "--upgrade", "shaggy-agent"]
+        print("→ Checking PyPI for updates...")
+        if uv:
+            cmd = [uv, "pip", "install", "--python", sys.executable, "--upgrade", "shaggy-agent"]
+        else:
+            cmd = [sys.executable, "-m", "pip", "install", "--upgrade", "shaggy-agent"]
 
     print(f"→ Running: {' '.join(cmd)}")
     result = subprocess.run(cmd)
     if result.returncode != 0:
         print("✗ Update failed")
+        if product_wheel is None:
+            print("  If this is a portable Shaggy Agent customer install, copy the latest")
+            print("  Shaggy-Agent-Product folder to this computer and reinstall/run its")
+            print("  update installer. This install is not connected to a public update feed.")
         sys.exit(1)
 
     print("✓ Update complete! Restart shaggy to use the new version.")

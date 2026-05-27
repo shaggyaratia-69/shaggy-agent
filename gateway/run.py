@@ -13574,10 +13574,11 @@ class GatewayRunner:
             return f"✗ {format_managed_message('update Shaggy Agent')}"
 
         project_root = Path(__file__).parent.parent.resolve()
-        git_dir = project_root / '.git'
-
-        if not git_dir.exists():
-            return t("gateway.update.not_git_repo")
+        # Do not block non-git installs here. Portable customer installs come
+        # from a bundled wheel/zip and update through `shaggy update --gateway`,
+        # which knows how to use SHAGGY_PRODUCT_DIR or pip-style installs.
+        # Let the CLI update command decide the correct update backend and
+        # produce any install-method-specific error message.
 
         shaggy_cmd = _resolve_shaggy_bin()
         if not shaggy_cmd:
