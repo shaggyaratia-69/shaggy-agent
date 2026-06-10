@@ -73,3 +73,5 @@ models-dev-upstream/
 shaggy_cli/tui_dist/*
 shaggy_cli/scripts/
 docs/superpowers/*
+# Private/local lead exports must not live in the public repo
+/leads/
