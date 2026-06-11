@@ -23,7 +23,17 @@ const scriptDir = dirname(fileURLToPath(import.meta.url));
 const websiteDir = resolve(scriptDir, "..");
 const extractScript = join(scriptDir, "extract-skills.py");
 const llmsScript = join(scriptDir, "generate-llms-txt.py");
-const outputFile = join(websiteDir, "src", "data", "skills.json");
+const dataDir = join(websiteDir, "src", "data");
+const outputFile = join(dataDir, "skills.json");
+const userStoriesFile = join(dataDir, "userStories.json");
+
+function ensureUserStoriesFallback() {
+  mkdirSync(dataDir, { recursive: true });
+  if (!existsSync(userStoriesFile)) {
+    writeFileSync(userStoriesFile, "[]\n");
+    console.warn("[prebuild] wrote empty userStories.json fallback.");
+  }
+}
 
 function writeEmptyFallback(reason) {
   mkdirSync(dirname(outputFile), { recursive: true });
@@ -51,7 +61,10 @@ function runPython(script, label) {
   return true;
 }
 
-// 1) skills.json — required for the Skills Hub page.
+// 1) Generated JSON imports required by React pages.
+ensureUserStoriesFallback();
+
+// 2) skills.json — required for the Skills Hub page.
 if (!existsSync(extractScript)) {
   writeEmptyFallback("extract script missing");
 } else {
@@ -66,5 +79,5 @@ if (!existsSync(extractScript)) {
   }
 }
 
-// 2) llms.txt + llms-full.txt — agent-friendly docs entrypoints. Non-fatal.
+// 3) llms.txt + llms-full.txt — agent-friendly docs entrypoints. Non-fatal.
 runPython(llmsScript, "generate-llms-txt.py");

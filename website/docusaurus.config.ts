@@ -7,8 +7,8 @@ const config: Config = {
   tagline: 'The self-improving AI agent',
   favicon: 'img/favicon.ico',
 
-  url: 'https://shaggyaratia-69.github.io/shaggy-agent',
-  baseUrl: '/docs/',
+  url: 'https://shaggyaratia-69.github.io',
+  baseUrl: '/shaggy-agent/docs/',
 
   organizationName: 'shaggyaratia-69',
   projectName: 'shaggy-agent',
@@ -111,6 +111,11 @@ const config: Config = {
           sidebarId: 'docs',
           position: 'left',
           label: 'Docs',
+        },
+        {
+          to: '/desktop',
+          label: 'Desktop',
+          position: 'left',
         },
         {
           to: '/skills',
