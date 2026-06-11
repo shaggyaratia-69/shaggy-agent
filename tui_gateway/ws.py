@@ -45,6 +45,19 @@ except ImportError:  # pragma: no cover - starlette is a required install path
     _WebSocketDisconnect = Exception  # type: ignore[assignment]
 
 
+def _is_disconnected_runtime_error(exc: RuntimeError) -> bool:
+    """Return true for Starlette's non-exception disconnect sentinel.
+
+    ``WebSocket.receive_text()`` normally raises ``WebSocketDisconnect`` when
+    the browser closes a live socket, but Starlette raises ``RuntimeError``
+    with "WebSocket is not connected" if the close races the first receive or
+    the connection is already past CONNECTED. Treat that as a normal client
+    disconnect so browser tab churn doesn't reach Uvicorn's ASGI error logger.
+    """
+
+    return "WebSocket is not connected" in str(exc)
+
+
 class WSTransport:
     """Per-connection WS transport.
 
@@ -136,6 +149,10 @@ async def handle_ws(ws: Any) -> None:
                 raw = await ws.receive_text()
             except _WebSocketDisconnect:
                 break
+            except RuntimeError as exc:
+                if _is_disconnected_runtime_error(exc):
+                    break
+                raise
 
             line = raw.strip()
             if not line:

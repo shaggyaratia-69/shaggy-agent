@@ -26,7 +26,7 @@ import { Button } from "@nous-research/ui/ui/components/button";
 import { Typography } from "@/components/NouiTypography";
 import { SHAGGY_BASE_PATH } from "@/lib/api";
 import { cn } from "@/lib/utils";
-import { Copy, PanelRight, X } from "lucide-react";
+import { ArrowUp, Copy, Mic, PanelRight, Plus, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useSearchParams } from "react-router-dom";
@@ -122,6 +122,8 @@ export default function ChatPage({ isActive = true }: { isActive?: boolean }) {
       : null,
   );
   const [copyState, setCopyState] = useState<"idle" | "copied">("idle");
+  const [welcomeVisible, setWelcomeVisible] = useState(true);
+  const [welcomePrompt, setWelcomePrompt] = useState("");
   const copyResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Raw state for the mobile side-sheet + a derived value that force-
   // closes whenever the chat tab isn't active.  The *derived* value is
@@ -264,6 +266,18 @@ export default function ChatPage({ isActive = true }: { isActive?: boolean }) {
     copyResetRef.current = setTimeout(() => setCopyState("idle"), 1500);
     termRef.current?.focus();
   };
+
+  const handleWelcomeSubmit = useCallback(() => {
+    const prompt = welcomePrompt.trim();
+    const ws = wsRef.current;
+    if (!prompt || !ws || ws.readyState !== WebSocket.OPEN) return;
+    setWelcomeVisible(false);
+    ws.send(prompt);
+    setTimeout(() => {
+      const s = wsRef.current;
+      if (s && s.readyState === WebSocket.OPEN) s.send("\r");
+    }, 80);
+  }, [welcomePrompt]);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -802,20 +816,60 @@ export default function ChatPage({ isActive = true }: { isActive?: boolean }) {
       <div className="flex min-h-0 flex-1 flex-col gap-2 lg:flex-row lg:gap-3">
         <div
           className={cn(
-            "relative flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-lg",
-            "p-2 sm:p-3",
+            "relative flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden",
+            welcomeVisible ? "rounded-none p-0" : "rounded-lg p-2 sm:p-3",
           )}
           style={{
-            backgroundColor: TERMINAL_THEME.background,
-            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+            backgroundColor: welcomeVisible ? "transparent" : TERMINAL_THEME.background,
+            boxShadow: welcomeVisible ? "none" : "0 8px 32px rgba(0, 0, 0, 0.4)",
           }}
         >
           <div
             ref={hostRef}
-            className="shaggy-chat-xterm-host min-h-0 min-w-0 flex-1"
+            className={cn(
+              "shaggy-chat-xterm-host min-h-0 min-w-0 flex-1",
+              welcomeVisible && "pointer-events-none opacity-0",
+            )}
           />
 
-          <Button
+          {welcomeVisible && (
+            <div className="shaggy-agent-welcome absolute inset-0 z-20 flex flex-col items-center justify-center px-5 pb-20 text-center">
+              <div className="shaggy-agent-title-wrap">
+                <h1 className="shaggy-agent-title">SHAGGY AGENT</h1>
+                <p className="shaggy-agent-subtitle">
+                  tell me what you're making! i love refactors, tiny helpers, and big scary repos alike (&gt;w&lt;)
+                </p>
+              </div>
+
+              <form
+                className="shaggy-agent-composer"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  handleWelcomeSubmit();
+                }}
+              >
+                <button type="button" className="shaggy-agent-icon-button" aria-label="Add file">
+                  <Plus className="h-4 w-4" />
+                </button>
+                <input
+                  value={welcomePrompt}
+                  onChange={(event) => setWelcomePrompt(event.target.value)}
+                  placeholder="Describe what you need"
+                  className="shaggy-agent-input"
+                  autoFocus
+                />
+                <button type="button" className="shaggy-agent-mic" aria-label="Voice input">
+                  <Mic className="h-4 w-4" />
+                </button>
+                <button type="submit" className="shaggy-agent-send" aria-label="Send prompt">
+                  <ArrowUp className="h-4 w-4" />
+                </button>
+              </form>
+            </div>
+          )}
+
+          {!welcomeVisible && (
+            <Button
             ghost
             onClick={handleCopyLast}
             title="Copy last assistant response as raw markdown"
@@ -838,9 +892,10 @@ export default function ChatPage({ isActive = true }: { isActive?: boolean }) {
               </span>
             </span>
           </Button>
+          )}
         </div>
 
-        {!narrow && (
+        {!narrow && !welcomeVisible && (
           <div
             id="chat-side-panel"
             role="complementary"

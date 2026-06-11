@@ -1,0 +1,72 @@
+{
+  "name": "shaggy-the-agent-desktop",
+  "productName": "Shaggy The Agent",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Native desktop shell for Shaggy Agent.",
+  "author": "Cherries and Co",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac dmg zip"
+  },
+  "devDependencies": {
+    "electron": "^40.9.3",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "electronVersion": "40.9.3",
+    "appId": "com.cherriesandco.shaggy.agent",
+    "productName": "Shaggy The Agent",
+    "executableName": "Shaggy The Agent",
+    "artifactName": "Shaggy-The-Agent-${version}-${os}-${arch}.${ext}",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**",
+      "src/**",
+      "assets/**",
+      "package.json"
+    ],
+    "asar": true,
+    "mac": {
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": false,
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "extendInfo": {
+        "CFBundleDisplayName": "Shaggy The Agent",
+        "CFBundleName": "Shaggy The Agent"
+      }
+    },
+    "dmg": {
+      "title": "Install Shaggy The Agent",
+      "backgroundColor": "#f5f5f5",
+      "iconSize": 96,
+      "window": {
+        "width": 560,
+        "height": 360
+      },
+      "contents": [
+        {
+          "x": 160,
+          "y": 170,
+          "type": "file"
+        },
+        {
+          "x": 400,
+          "y": 170,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  }
+}
