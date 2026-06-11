@@ -70,6 +70,13 @@ def test_build_welcome_banner_uses_normalized_toolset_names():
     assert "web_tools:" not in output
 
 
+def test_default_startup_art_contains_shaggy_the_agent_branding():
+    """Default startup art should explicitly brand the product as Shaggy The Agent."""
+    assert "SHAGGY THE AGENT" in banner.SHAGGY_AGENT_LOGO
+    assert "SHAGGY" in banner.SHAGGY_CADUCEUS
+    assert "THE AGENT" in banner.SHAGGY_CADUCEUS
+
+
 def test_build_welcome_banner_title_is_hyperlinked_to_release():
     """Panel title (version label) is wrapped in an OSC-8 hyperlink to the GitHub release."""
     import io

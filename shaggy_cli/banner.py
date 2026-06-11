@@ -67,25 +67,25 @@ def _skin_branding(key: str, fallback: str) -> str:
 
 from shaggy_cli import __version__ as VERSION, __release_date__ as RELEASE_DATE
 
-SHAGGY_AGENT_LOGO = """[bold #FFFFFF]╔══════════════════════════════════════════════════════════════════════╗[/]
-[bold #FFFFFF]║   ███████╗██╗  ██╗ █████╗  ██████╗  ██████╗ ██╗   ██╗            ║[/]
-[bold #FFFFFF]║   ██╔════╝██║  ██║██╔══██╗██╔════╝ ██╔════╝ ╚██╗ ██╔╝            ║[/]
-[bold #FFFFFF]║   ███████╗███████║███████║██║  ███╗██║  ███╗ ╚████╔╝             ║[/]
-[bold #CFCFCF]║   ╚════██║██╔══██║██╔══██║██║   ██║██║   ██║  ╚██╔╝              ║[/]
-[bold #CFCFCF]║   ███████║██║  ██║██║  ██║╚██████╔╝╚██████╔╝   ██║               ║[/]
-[bold #CFCFCF]║   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝               ║[/]
-[bold #FFFFFF]║                         A G E N T                                  ║[/]
-[#AFAFAF]║              Premium local AI assistant • private control           ║[/]
-[#7A7A7A]╚══════════════════════════════════════════════════════════════════════╝[/]"""
+SHAGGY_AGENT_LOGO = """[bold #FFD36A]╔════════════════════════════════════════════════════════════════════════════╗[/]
+[bold #FFD36A]║  ███████╗██╗  ██╗ █████╗  ██████╗  ██████╗ ██╗   ██╗                    ║[/]
+[bold #FFB000]║  ██╔════╝██║  ██║██╔══██╗██╔════╝ ██╔════╝ ╚██╗ ██╔╝                    ║[/]
+[bold #FFB000]║  ███████╗███████║███████║██║  ███╗██║  ███╗ ╚████╔╝                     ║[/]
+[bold #FF7A1A]║  ╚════██║██╔══██║██╔══██║██║   ██║██║   ██║  ╚██╔╝                      ║[/]
+[bold #FF7A1A]║  ███████║██║  ██║██║  ██║╚██████╔╝╚██████╔╝   ██║                       ║[/]
+[bold #FF7A1A]║  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝                       ║[/]
+[bold #FFF3C4]║                         SHAGGY THE AGENT                                  ║[/]
+[#D6A95B]║             Premium local AI command center • private control              ║[/]
+[#7C5622]╚════════════════════════════════════════════════════════════════════════════╝[/]"""
 
-SHAGGY_CADUCEUS = """[bold #FFFFFF]      ╔════════════════════╗      [/]
-[bold #FFFFFF]      ║   S H A G G Y    ║      [/]
-[bold #CFCFCF]      ║     A G E N T    ║      [/]
-[#AFAFAF]      ╠════════════════════╣      [/]
-[#FFFFFF]      ║  local AI command  ║      [/]
-[#CFCFCF]      ║  premium desktop   ║      [/]
-[#8A8A8A]      ║  private control   ║      [/]
-[#7A7A7A]      ╚════════════════════╝      [/]"""
+SHAGGY_CADUCEUS = """[bold #FFD36A]      ╔════════════════════╗      [/]
+[bold #FFD36A]      ║      SHAGGY      ║      [/]
+[bold #FFB000]      ║    THE AGENT     ║      [/]
+[#D6A95B]      ╠════════════════════╣      [/]
+[#FFF3C4]      ║  local AI command  ║      [/]
+[#FFB000]      ║  premium desktop   ║      [/]
+[#A66B1F]      ║  private control   ║      [/]
+[#7C5622]      ╚════════════════════╝      [/]"""
 
 
 
