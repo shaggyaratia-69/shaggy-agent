@@ -769,6 +769,8 @@ class _CodexCompletionsAdapter:
                 logger.debug("Codex auxiliary: cache eviction on timeout failed", exc_info=True)
 
         def _check_cancelled() -> None:
+            if timed_out.is_set():
+                raise TimeoutError(_timeout_message())
             if deadline is not None and time.monotonic() >= deadline:
                 if not timed_out.is_set():
                     _close_client_on_timeout()
@@ -784,17 +786,14 @@ class _CodexCompletionsAdapter:
                 # new failure mode for auxiliary calls.
                 pass
 
-        try:
+        def _consume_streaming_response():
             # Collect output items and text deltas during streaming —
             # the Codex backend can return empty response.output from
             # get_final_response() even when items were streamed.
             collected_output_items: List[Any] = []
             collected_text_deltas: List[str] = []
             has_function_calls = False
-            if total_timeout:
-                timeout_timer = threading.Timer(float(total_timeout), _close_client_on_timeout)
-                timeout_timer.daemon = True
-                timeout_timer.start()
+
             _check_cancelled()
             with self._client.responses.stream(**resp_kwargs) as stream:
                 for _event in stream:
@@ -811,13 +810,13 @@ class _CodexCompletionsAdapter:
                     elif "function_call" in _etype:
                         has_function_calls = True
                 _check_cancelled()
-                final = stream.get_final_response()
+                final_response = stream.get_final_response()
 
             # Backfill empty output from collected stream events
-            _output = getattr(final, "output", None)
+            _output = getattr(final_response, "output", None)
             if isinstance(_output, list) and not _output:
                 if collected_output_items:
-                    final.output = list(collected_output_items)
+                    final_response.output = list(collected_output_items)
                     logger.debug(
                         "Codex auxiliary: backfilled %d output items from stream events",
                         len(collected_output_items),
@@ -827,7 +826,7 @@ class _CodexCompletionsAdapter:
                     # a function_call response with incidental text should not
                     # be collapsed into a plain-text message.
                     assembled = "".join(collected_text_deltas)
-                    final.output = [SimpleNamespace(
+                    final_response.output = [SimpleNamespace(
                         type="message", role="assistant", status="completed",
                         content=[SimpleNamespace(type="output_text", text=assembled)],
                     )]
@@ -835,9 +834,43 @@ class _CodexCompletionsAdapter:
                         "Codex auxiliary: synthesized from %d deltas (%d chars)",
                         len(collected_text_deltas), len(assembled),
                     )
+            return final_response
+
+        try:
+            if total_timeout:
+                import queue
+
+                result_queue: "queue.Queue[tuple[bool, Any]]" = queue.Queue(maxsize=1)
+
+                def _worker() -> None:
+                    try:
+                        result_queue.put((True, _consume_streaming_response()))
+                    except BaseException as exc:  # propagate worker-side timeout/stream errors
+                        result_queue.put((False, exc))
+
+                worker = threading.Thread(
+                    target=_worker,
+                    daemon=True,
+                    name="codex-aux-response-stream",
+                )
+                worker.start()
+                worker.join(float(total_timeout))
+                if worker.is_alive():
+                    _close_client_on_timeout()
+                    raise TimeoutError(_timeout_message())
+                try:
+                    ok, value = result_queue.get_nowait()
+                except queue.Empty as exc:
+                    raise RuntimeError("Codex auxiliary Responses stream ended without a result") from exc
+                if ok:
+                    final = value
+                else:
+                    raise value
+            else:
+                final = _consume_streaming_response()
 
             # Extract text and tool calls from the Responses output.
-            # Items may be SDK objects (attrs) or dicts (raw/fallback paths),
+
             # so use a helper that handles both shapes.
             def _item_get(obj: Any, key: str, default: Any = None) -> Any:
                 val = getattr(obj, key, None)
@@ -3938,7 +3971,7 @@ def resolve_vision_provider_client(
 
 def get_auxiliary_extra_body() -> dict:
     """Return extra_body kwargs for auxiliary API calls.
-    
+
     Includes Nous Portal product tags when the auxiliary client is backed
     by Nous Portal. Returns empty dict otherwise.
     """
@@ -3947,7 +3980,7 @@ def get_auxiliary_extra_body() -> dict:
 
 def auxiliary_max_tokens_param(value: int) -> dict:
     """Return the correct max tokens kwarg for the auxiliary client's provider.
-    
+
     OpenRouter and local models use 'max_tokens'. Direct OpenAI with newer
     models (gpt-4o, o-series, gpt-5+) requires 'max_completion_tokens'.
     The Codex adapter translates max_tokens internally, so we use max_tokens
