@@ -1,43 +1,141 @@
-# Shaggy The Agent Desktop
+# Shaggy The Agent ☤
 
-Native Electron shell for the Shaggy Agent local dashboard/chat workspace.
+<p align="center">
+  <a href="https://github.com/shaggyaratia-69/shaggy-agent/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
+  <a href="https://shaggy-agent.cherriesandco.com/docs/"><img src="https://img.shields.io/badge/Docs-shaggy--agent.cherriesandco.com-FFD700?style=for-the-badge" alt="Documentation"></a>
+  <a href="https://discord.gg/shaggyaratia-69"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://github.com/shaggyaratia-69/shaggy-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
+</p>
 
-## What it does
+**The native desktop app for [Shaggy The Agent](../../README.md) — the self-improving AI agent from [Cherries and Co Research](https://cherriesandco.com).** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
 
-- Starts a local Shaggy dashboard backend on `127.0.0.1`.
-- Enables the embedded `/chat` TUI experience with `shaggy dashboard --no-open --tui`.
-- Generates a fresh per-launch dashboard session token in the Electron main process.
-- Opens the private local workspace inside a sandboxed Electron window.
+<table>
+<tr><td><b>Chat with the full agent</b></td><td>Streaming responses, live tool activity, structured tool summaries, and the same conversation history as every other Shaggy surface.</td></tr>
+<tr><td><b>Side-by-side previews</b></td><td>Render web pages, files, and tool outputs in a right-hand pane while you keep chatting.</td></tr>
+<tr><td><b>File browser</b></td><td>Explore and preview the working directory without leaving the app.</td></tr>
+<tr><td><b>Voice</b></td><td>Talk to Shaggy and hear it back.</td></tr>
+<tr><td><b>Settings & onboarding</b></td><td>Manage providers, models, tools, and credentials from a real UI. First-run setup gets you to your first message in seconds.</td></tr>
+<tr><td><b>Stays current</b></td><td>Built-in updates pull the latest agent and rebuild the app in place.</td></tr>
+</table>
 
-## Local development
+---
+
+## Install
+
+### Install with Shaggy (recommended)
+
+Already have the Shaggy CLI? Just run:
 
 ```bash
+shaggy desktop
+```
+
+It builds and launches the GUI against your existing install — same config, keys, sessions, and skills. On first launch Shaggy walks you through picking a provider and model; nothing else to configure.
+
+### Prebuilt installers
+
+Prebuilt installers are built and distributed via [the Shaggy The Agent website.](https://shaggy-agent.cherriesandco.com/desktop).
+
+---
+
+## Updating
+
+The app checks for updates in the background and offers a one-click update when one is ready. You can also update any time from the CLI:
+
+```bash
+shaggy update
+```
+
+---
+
+## Requirements
+
+The installer handles everything for you (Python 3.11+, a portable Git, ripgrep).
+
+---
+
+## Development
+
+Want to hack on the app itself? Install workspace deps from the repo root once, then run the dev server from this directory:
+
+```bash
+npm install          # from repo root — links apps/desktop, web, apps/shared
 cd apps/desktop
-npm install
-npm test
-npm run pack
-npm start
+npm run dev          # Vite renderer + Electron, which boots the Python backend
 ```
 
-Useful overrides:
+Point the app at a specific source checkout, or sandbox it away from your real config:
 
 ```bash
-SHAGGY_DESKTOP_REPO_ROOT=/path/to/shaggy-agent npm start
-SHAGGY_DESKTOP_BACKEND_URL=http://127.0.0.1:9120 npm start
+SHAGGY_DESKTOP_SHAGGY_ROOT=/path/to/clone npm run dev
+SHAGGY_HOME=/tmp/throwaway npm run dev
+npm run dev:fake-boot   # exercise the startup overlay with deterministic delays
 ```
 
-## Verification standard
+### Building installers
 
-Before shipping a desktop change:
+```bash
+npm run dist:mac     # DMG + zip
+npm run dist:win     # NSIS + MSI
+npm run dist:linux   # AppImage + deb + rpm
+npm run pack         # unpacked app under release/ (no installer)
+```
 
-1. Run `node --check electron/main.cjs electron/preload.cjs src/boot.js`.
-2. Run `npm test`.
-3. Run `npm run pack` and verify the generated app metadata says `Shaggy The Agent`.
-4. Run the web build from `../../web` because the desktop shell loads the dashboard `/chat` bundle.
-5. Confirm `node_modules/`, `release/`, and `dist/` remain ignored and are not committed.
+Installers are built and uploaded to GitHub Releases manually. macOS/Windows signing & notarization happen automatically when the relevant credentials are present in the environment (`CSC_LINK` / `CSC_KEY_PASSWORD` / `APPLE_*` for macOS, `WIN_CSC_*` for Windows).
 
-## Privacy / security notes
+### How it works
 
-- The desktop app is local-first. It binds to loopback and does not publish the dashboard externally.
-- The dashboard session token is generated at launch and passed to the backend through environment variables, not written into package files.
-- The Electron renderer keeps `contextIsolation: true`, `nodeIntegration: false`, and `sandbox: true`.
+The packaged app ships only the Electron shell. On first launch it installs the Shaggy The Agent runtime into `SHAGGY_HOME` (`~/.shaggy`, or `%LOCALAPPDATA%\shaggy` on Windows) — the **same layout a CLI install uses**, so the two are interchangeable. The renderer (React, in `src/`) talks to a `shaggy dashboard` backend over the standard gateway APIs and reuses the embedded TUI rather than reimplementing chat. The install, backend-resolution, and self-update logic all live in `electron/main.cjs`.
+
+### Verification
+
+Run before opening a PR (lint may surface pre-existing warnings but must exit cleanly):
+
+```bash
+npm run fix
+npm run typecheck
+npm run lint
+npm run test:desktop:all
+```
+
+### Troubleshooting
+
+Boot logs land in `SHAGGY_HOME/logs/desktop.log` (includes backend output and recent Python tracebacks) — check it first if the app reports a boot failure.
+
+**macOS / Linux:**
+
+```bash
+# Force a clean first-launch setup
+rm "$HOME/.shaggy/shaggy-agent/.shaggy-bootstrap-complete"
+# Rebuild a broken Python venv
+rm -rf "$HOME/.shaggy/shaggy-agent/venv"
+# Reset a stuck macOS microphone prompt (macOS only)
+tccutil reset Microphone com.cherriesandco.shaggy.agent
+```
+
+**Windows (PowerShell):**
+
+```powershell
+# Force a clean first-launch setup
+Remove-Item "$env:LOCALAPPDATA\shaggy\shaggy-agent\.shaggy-bootstrap-complete"
+# Rebuild a broken Python venv
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\shaggy\shaggy-agent\venv"
+```
+
+> The default Shaggy home on Windows is `%LOCALAPPDATA%\shaggy`. Set the `SHAGGY_HOME` env var if you've relocated it.
+
+---
+
+## Community
+
+- 💬 [Discord](https://discord.gg/shaggyaratia-69)
+- 📖 [Documentation](https://shaggy-agent.cherriesandco.com/docs/)
+- 🐛 [Issues](https://github.com/shaggyaratia-69/shaggy-agent/issues)
+
+---
+
+## License
+
+MIT — see [LICENSE](../../LICENSE).
+
+Built by [Cherries and Co Research](https://cherriesandco.com).
